@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useGameStore from '../store/gameStore';
 import Workbench from '../components/layout/Workbench';
 import CardboardButton from '../components/ui/CardboardButton';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import SparkyAvatar from '../components/character/SparkyAvatar';
 
 const ShopScreen = ({ onBack }) => {
     const { coins, inventory, shopItems, purchaseItem, equippedItems, toggleEquip } = useGameStore();
 
+    // Toast State
+    const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+
+    useEffect(() => {
+        if (toast.show) {
+            const timer = setTimeout(() => setToast(prev => ({ ...prev, show: false })), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [toast.show]);
+
+    const showNotification = (msg, type = 'success') => {
+        setToast({ show: true, message: msg, type });
+    };
+
     const handleBuy = (item) => {
         const success = purchaseItem(item.id);
         if (success) {
-            // Could trigger a sound or smaller confetti here
-            alert(`Je hebt de ${item.name} gekocht!`);
+            showNotification(`Je hebt de ${item.name} gekocht! 🎉`, 'success');
         } else {
             if (inventory.includes(item.id)) {
-                alert("Je hebt dit al!");
+                showNotification("Je hebt dit al!", 'error');
             } else {
-                alert("Niet genoeg muntjes!");
+                showNotification("Niet genoeg muntjes!", 'error');
             }
         }
     };
@@ -112,10 +125,17 @@ const ShopScreen = ({ onBack }) => {
                                         <p className="text-xs text-gray-600 font-serif italic mt-1">
                                             {/* Dynamic "Funny" descriptions based on item ID */}
                                             {item.id === 'gold-antenna' && "Vangt signalen uit de ruimte (misschien)."}
+                                            {item.id === 'mustache' && "Staat deftig bij elke gelegenheid."}
+                                            {item.id === 'sunglasses' && "Om cool te doen, zelfs in het donker."}
                                             {item.id === 'rocket-boots' && "Pas op: Kan brandplekken op het tapijt maken."}
+                                            {item.id === 'bow-tie' && "Voor als je op audiëntie gaat bij de koning."}
                                             {item.id === 'paint-bucket' && "Word een kunstenaar! Of maak gewoon rommel."}
-                                            {item.id === 'disco-lights' && "Voor als je wilt dansen tijdens het rekenen."}
-                                            {item.id === 'super-sparky' && "Is het een vogel? Is het een vliegtuig? Nee."}
+                                            {item.id === 'headphones' && "Hoor de sterren zingen (of ruisen)."}
+                                            {item.id === 'propeller-hat' && "Voor een luchtig gevoel in je bol."}
+                                            {item.id === 'red-balloon' && "Pas op voor prikkende cactussen!"}
+                                            {item.id === 'magic-wand' && "Hocus Pocus Pilatus... Oeps!"}
+                                            {item.id === 'disco-ball' && "Voor als je wilt dansen tijdens het rekenen."}
+                                            {item.id === 'super-cape' && "Is het een vogel? Is het een vliegtuig? Nee."}
                                         </p>
                                     </div>
 
@@ -157,6 +177,23 @@ const ShopScreen = ({ onBack }) => {
                         </p>
                     </div>
                 </div>
+
+                {/* Toast Notification */}
+                <AnimatePresence>
+                    {toast.show && (
+                        <motion.div
+                            initial={{ y: 100, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: 100, opacity: 0 }}
+                            className={clsx(
+                                "fixed bottom-8 left-1/2 -translate-x-1/2 px-8 py-4 rounded-full shadow-2xl border-4 z-[100] text-xl font-bold font-hand",
+                                toast.type === 'success' ? "bg-green-100 text-green-800 border-green-500" : "bg-red-100 text-red-800 border-red-500"
+                            )}
+                        >
+                            {toast.message}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
             </div>
         </Workbench>

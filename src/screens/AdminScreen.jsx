@@ -11,9 +11,24 @@ const AdminScreen = ({ onBack }) => {
     const [loading, setLoading] = useState(false);
     const [stats, setStats] = useState({});
 
+    // Auth State
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [pin, setPin] = useState('');
+
     useEffect(() => {
-        loadData();
-    }, []);
+        if (isAuthenticated) {
+            loadData();
+        }
+    }, [isAuthenticated]);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (pin === '1234') { // Simple PIN for prototype
+            setIsAuthenticated(true);
+        } else {
+            alert('Foutieve pincode!');
+        }
+    };
 
     const loadData = async () => {
         setLoading(true);
@@ -156,6 +171,35 @@ const AdminScreen = ({ onBack }) => {
             }
         }
     };
+
+    if (!isAuthenticated) return (
+        <Workbench>
+            <div className="absolute top-4 left-4 z-50">
+                <CardboardButton onClick={onBack} className="!px-4 !py-2 !text-lg">
+                    ← TERUG
+                </CardboardButton>
+            </div>
+            <div className="flex flex-col items-center justify-center h-full">
+                <div className="bg-white p-8 rounded-lg shadow-xl border-4 border-gray-800 text-center">
+                    <h2 className="text-2xl font-bold mb-4">🔐 ADMIN TOEGANG</h2>
+                    <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                        <input
+                            type="password"
+                            placeholder="Pincode"
+                            className="bg-gray-100 border-2 border-gray-400 p-3 text-center text-xl tracking-widest rounded"
+                            value={pin}
+                            onChange={(e) => setPin(e.target.value)}
+                            autoFocus
+                        />
+                        <CardboardButton onClick={handleLogin}>
+                            INLOGGEN
+                        </CardboardButton>
+                    </form>
+                    <p className="text-xs text-gray-400 mt-4 italic text-center">(Hint: 1234)</p>
+                </div>
+            </div>
+        </Workbench>
+    );
 
     return (
         <Workbench>

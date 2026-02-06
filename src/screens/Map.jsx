@@ -91,6 +91,22 @@ const MapScreen = ({ onBack, onSelectLevel }) => {
                                 >
                                     {level.title}
                                 </div>
+
+                                {/* Stars */}
+                                {isUnlocked && unlockedLevels.length > level.id && ( // Show stars if completed (simple heuristic: next level unlocked implies this one done, OR check score)
+                                    // Better: use levelScores
+                                    <div className="flex gap-1">
+                                        {[1, 2, 3].map(s => {
+                                            const score = useGameStore.getState().levelScores[level.id];
+                                            const earned = score && score.stars >= s;
+                                            return (
+                                                <span key={s} className={clsx("text-sm", earned ? "grayscale-0" : "grayscale opacity-30")}>
+                                                    ⭐
+                                                </span>
+                                            );
+                                        })}
+                                    </div>
+                                )}
                             </motion.div>
                         );
                     })}

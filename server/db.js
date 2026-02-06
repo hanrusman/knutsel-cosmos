@@ -21,7 +21,6 @@ const initDb = () => {
         const createQuery = `
             CREATE TABLE questions (
                 id TEXT PRIMARY KEY,
-                text TEXT, -- legacy field support
                 question TEXT NOT NULL,
                 tags TEXT, -- Stored as JSON string
                 answers TEXT, -- Stored as JSON string

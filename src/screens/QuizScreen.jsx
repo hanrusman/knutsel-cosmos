@@ -20,23 +20,32 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
     const [quizCompleted, setQuizCompleted] = useState(false);
 
     // Stats Tracking
+    // Use Ref to track score synchronously for the timeout callback (stale closure fix)
     const [correctCount, setCorrectCount] = useState(0);
-    const [hasRetried, setHasRetried] = useState(false); // Track if current question was retried
+    const correctCountRef = React.useRef(0);
 
     // Load questions on mount based on Level ID (simulating tag matching)
     useEffect(() => {
         const loadQuizData = async () => {
             setLoading(true);
+            // Reset score
+            setCorrectCount(0);
+            correctCountRef.current = 0;
+
             // For prototype, map level ID to tag. 
             // Level 1 -> 'level1', Level 2 -> 'level2', etc. Fallback to all 'space' if no specific match
             let tag = `level${levelId}`;
 
+            // Get excluded IDs
+            const { sessionAnsweredIds } = useGameStore.getState();
+
             // Limit to 10 questions per round
-            let loaded = await QuestionService.getQuestionsByTag(tag, 10);
+            let loaded = await QuestionService.getQuestionsByTag(tag, 10, sessionAnsweredIds);
 
             if (loaded.length === 0) {
                 // Fallback: Just load ANY question with 'space' tag if specific level questions missing
-                loaded = await QuestionService.getQuestionsByTag('space', 10);
+                // Also reset exclusions if we ran out? For now, simplistic.
+                loaded = await QuestionService.getQuestionsByTag('space', 10, []);
             }
 
             // Validate data structure
@@ -59,20 +68,25 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
         // Record Attempt in Background
         QuestionService.recordAttempt(currentQuestion.id, isAnsCorrect);
 
+        // Record as seen locally
+        const { recordAnsweredId } = useGameStore.getState();
+        recordAnsweredId(currentQuestion.id);
+
         if (isAnsCorrect) {
             setIsCorrect(true);
             setCorrectCount(prev => prev + 1);
+            correctCountRef.current += 1; // Update Ref immediately
         } else {
             setIsCorrect(false);
         }
 
         // Auto advance after short delay regardless of result
         setTimeout(() => {
-            handleNextLocked(isAnsCorrect);
+            handleNextLocked();
         }, 1500);
     };
 
-    const handleNextLocked = (wasCorrect) => {
+    const handleNextLocked = () => {
         // Did we finish the quiz?
         if (currentIndex < questions.length - 1) {
             // Go to next question
@@ -86,27 +100,30 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
             setQuizCompleted(true);
             setShowReward(true);
 
-            // Calculate Rewards: Coins = Total Correct Answers
-            // We use the live correctCount + 1 if the last one was correct (state might not be flushed yet if we used state directly, 
-            // but here we updated state above. Safest to use a local variable passed in? 
-            // Actually setCorrectCount is async. Let's calculate based on final state.
-            // Better: just calculate at end.
-
-            // Wait a moment for state to settle or just pass explicit count? 
-            // Simpler: Just rely on state, it will be fine for the effect. 
-            // Actually, inside this closure 'correctCount' is stale.
-            // We can trust the state update will be reflected in the render next cycle.
-            // But for the logic below:
-
+            // Calculate Rewards using Ref to avoid stale closure
             setTimeout(() => {
-                const finalCount = wasCorrect ? correctCount + 1 : correctCount;
+                const finalCount = correctCountRef.current;
                 const rewardAmount = Math.max(finalCount, 1); // Minimum 1 coin
 
-                addGears(1);
+                // addGears(1); // Removed
                 addCoins(rewardAmount);
                 unlockLevel(levelId + 1);
+
+                // Save Score
+                const { saveLevelScore } = useGameStore.getState();
+                saveLevelScore(levelId, finalCount, questions.length);
+
             }, 500);
         }
+    };
+
+    // Helper for Win Message
+    const getWinMessage = () => {
+        const percentage = (correctCount / questions.length) * 100;
+        if (percentage === 100) return "FANTASTISCH!";
+        if (percentage >= 80) return "GEWONNEN!";
+        if (percentage >= 50) return "GOED GEDAAN!";
+        return "HELAAS!";
     };
 
     if (loading) return (
@@ -150,7 +167,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                     <div className="flex gap-8 items-center justify-center w-full flex-1">
                         {currentQuestion.answers.map((answer, idx) => (
                             <motion.div
-                                key={idx}
+                                key={answer.id || idx} /* Fix key using ID if available */
                                 className="relative group cursor-pointer"
                                 whileHover={!answered ? { scale: 1.05, rotate: Math.random() * 4 - 2 } : {}}
                                 onClick={() => !answered && handleAnswer(answer)}
@@ -161,7 +178,12 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                                         {answer.image ? (
                                             <img src={answer.image} alt={answer.label} className="w-full h-full object-cover" />
                                         ) : (
-                                            <div className="text-4xl">📷</div>
+                                            <div className="w-full h-full flex flex-col items-center justify-center opacity-40">
+                                                <span className="text-6xl font-hand font-bold rotate-12 select-none">?</span>
+                                                <span className="text-xs font-serif italic mt-2 text-center px-2">
+                                                    (Verbeelding<br />nodig)
+                                                </span>
+                                            </div>
                                         )}
                                     </div>
                                     <div className="absolute bottom-2 left-0 w-full text-center font-bold text-xl text-gray-700 uppercase">
@@ -209,7 +231,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                 /* Quiz Completed View */
                 <div className="flex flex-col items-center justify-center h-full gap-8">
                     <h1 className="text-6xl font-bold bg-white px-8 py-4 rotate-minus-2 shadow-lg border-4 border-yellow-500 text-yellow-600">
-                        GEWONNEN!
+                        {getWinMessage()}
                     </h1>
                     <div className="text-2xl font-bold bg-paper px-6 py-2 rotate-1">
                         Je hebt {correctCount} muntjes verdiend! ({correctCount}/{questions.length} goed)
@@ -222,7 +244,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
 
             {/* Reward Animation */}
             <AnimatePresence>
-                {showReward && <FlyingGear />}
+                {showReward && <FlyingCoin />}
             </AnimatePresence>
 
         </Workbench>
@@ -245,6 +267,26 @@ const FlyingGear = () => {
             transition={{ duration: 1.5, ease: "easeInOut" }}
         >
             ⚙️
+        </motion.div>
+    )
+}
+
+// Renamed for clarity, though keeping component name for minimal diff if desired
+const FlyingCoin = () => {
+    return (
+        <motion.div
+            className="fixed top-1/2 left-1/2 z-[100] pointer-events-none text-6xl"
+            initial={{ scale: 0, x: '-50%', y: '-50%' }}
+            animate={{
+                scale: [1, 1.5, 0.5],
+                rotate: 720,
+                top: '5%',
+                left: '90%', // Flies to coin counter position usually
+                opacity: [1, 1, 0]
+            }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+        >
+            🪙
         </motion.div>
     )
 }

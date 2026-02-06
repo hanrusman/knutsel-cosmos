@@ -52,12 +52,13 @@ export const QuestionService = {
         }
     },
 
-    getQuestionsByTag: async (tag, limit = 10) => {
+    getQuestionsByTag: async (tag, limit = 10, excludeIds = []) => {
         try {
             // Use backend filtering and limiting
             const url = new URL(API_URL, window.location.origin);
             if (tag) url.searchParams.append('tag', tag);
             if (limit) url.searchParams.append('limit', limit);
+            if (excludeIds.length > 0) url.searchParams.append('exclude', excludeIds.join(','));
 
             const res = await fetch(url);
             if (!res.ok) throw new Error('Failed to fetch questions');
