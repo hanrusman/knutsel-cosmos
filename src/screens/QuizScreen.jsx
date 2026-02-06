@@ -51,6 +51,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
     }, [levelId]);
 
     const handleAnswer = async (answer) => {
+        if (answered) return; // Prevent double clicks
         setAnswered(true);
 
         const isAnsCorrect = answer.isCorrect;
@@ -60,44 +61,51 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
 
         if (isAnsCorrect) {
             setIsCorrect(true);
-            if (!hasRetried) {
-                setCorrectCount(prev => prev + 1);
-            }
+            setCorrectCount(prev => prev + 1);
         } else {
             setIsCorrect(false);
-            setHasRetried(true);
         }
+
+        // Auto advance after short delay regardless of result
+        setTimeout(() => {
+            handleNextLocked(isAnsCorrect);
+        }, 1500);
     };
 
-    const handleNext = () => {
-        if (isCorrect) {
-            // Did we finish the quiz?
-            if (currentIndex < questions.length - 1) {
-                // Go to next question
-                setAnswered(false);
-                setIsCorrect(false);
-                setHasRetried(false); // Reset retry flag for new question
-                const nextIdx = currentIndex + 1;
-                setCurrentIndex(nextIdx);
-                setCurrentQuestion(questions[nextIdx]);
-            } else {
-                // FINISHED QUIZ
-                setQuizCompleted(true);
-                setShowReward(true);
-
-                // Calculate Rewards: Coins = Correct Answers on First Try
-                const rewardAmount = Math.max(correctCount, 1); // Minimum 1 coin
-
-                setTimeout(() => {
-                    addGears(1); // Standard gear reward
-                    addCoins(rewardAmount);
-                    unlockLevel(levelId + 1);
-                }, 500);
-            }
-        } else {
-            // Retry current question (reset state UI only, logic tracks retry)
+    const handleNextLocked = (wasCorrect) => {
+        // Did we finish the quiz?
+        if (currentIndex < questions.length - 1) {
+            // Go to next question
             setAnswered(false);
             setIsCorrect(false);
+            const nextIdx = currentIndex + 1;
+            setCurrentIndex(nextIdx);
+            setCurrentQuestion(questions[nextIdx]);
+        } else {
+            // FINISHED QUIZ
+            setQuizCompleted(true);
+            setShowReward(true);
+
+            // Calculate Rewards: Coins = Total Correct Answers
+            // We use the live correctCount + 1 if the last one was correct (state might not be flushed yet if we used state directly, 
+            // but here we updated state above. Safest to use a local variable passed in? 
+            // Actually setCorrectCount is async. Let's calculate based on final state.
+            // Better: just calculate at end.
+
+            // Wait a moment for state to settle or just pass explicit count? 
+            // Simpler: Just rely on state, it will be fine for the effect. 
+            // Actually, inside this closure 'correctCount' is stale.
+            // We can trust the state update will be reflected in the render next cycle.
+            // But for the logic below:
+
+            setTimeout(() => {
+                const finalCount = wasCorrect ? correctCount + 1 : correctCount;
+                const rewardAmount = Math.max(finalCount, 1); // Minimum 1 coin
+
+                addGears(1);
+                addCoins(rewardAmount);
+                unlockLevel(levelId + 1);
+            }, 500);
         }
     };
 
@@ -180,19 +188,18 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                     </div>
 
                     {/* Feedback / Next */}
-                    <div className="h-24 flex items-center justify-center">
-                        {answered && isCorrect && (
-                            <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-                                <CardboardButton onClick={handleNext} className="bg-green-100 !border-green-800 !text-green-900">
-                                    VOLGENDE →
-                                </CardboardButton>
-                            </motion.div>
-                        )}
-                        {answered && !isCorrect && (
-                            <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-                                <div className="text-2xl text-red-800 font-bold bg-white p-4 shadow-lg rotate-2 border-2 border-red-800 cursor-pointer" onClick={() => setAnswered(false)}>
-                                    Oeps! Probeer het nog eens. (Klik hier)
-                                </div>
+                    <div className="h-24 flex items-center justify-center font-bold text-2xl">
+                        {answered && (
+                            <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+                                {isCorrect ? (
+                                    <span className="text-green-600 bg-green-100 px-6 py-2 rounded-full border border-green-400">
+                                        GOED GEDAAN! 🎉
+                                    </span>
+                                ) : (
+                                    <span className="text-red-600 bg-red-100 px-6 py-2 rounded-full border border-red-400">
+                                        HELAAS! Volgende keer beter.
+                                    </span>
+                                )}
                             </motion.div>
                         )}
                     </div>

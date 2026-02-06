@@ -97,10 +97,14 @@ const ShopScreen = ({ onBack }) => {
                                     )}
 
                                     {/* Item Icon */}
-                                    <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center text-7xl shadow-inner border-4 border-gray-200 group-hover:scale-110 transition-transform relative overflow-hidden">
+                                    <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner border-4 border-gray-200 group-hover:scale-110 transition-transform relative overflow-hidden p-4">
                                         {/* Simple "shine" effect */}
-                                        <div className="absolute top-0 left-0 w-full h-1/2 bg-white/40 -skew-y-12 translate-y-[-50%]" />
-                                        <span className="drop-shadow-lg filter">{item.icon}</span>
+                                        <div className="absolute top-0 left-0 w-full h-1/2 bg-white/40 -skew-y-12 translate-y-[-50%] z-10" />
+                                        <img
+                                            src={item.icon}
+                                            alt={item.name}
+                                            className="w-full h-full object-contain filter drop-shadow-lg"
+                                        />
                                     </div>
 
                                     <div className="text-center w-full bg-white/50 p-2 transform -skew-x-2">
