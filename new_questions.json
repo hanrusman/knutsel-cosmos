@@ -1,0 +1,3656 @@
+[
+    {
+        "question": "Wat is de naam van de eerste hond die in de ruimte ging?",
+        "tags": [
+            "space",
+            "history"
+        ],
+        "answers": [
+            {
+                "label": "Laika",
+                "isCorrect": true
+            },
+            {
+                "label": "Belka",
+                "isCorrect": false
+            },
+            {
+                "label": "Strelka",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke planeet is het dichtst bij de zon?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Venus",
+                "isCorrect": false
+            },
+            {
+                "label": "Mercurius",
+                "isCorrect": true
+            },
+            {
+                "label": "Mars",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat betekent het woord 'robot'?",
+        "tags": [
+            "robots",
+            "language"
+        ],
+        "answers": [
+            {
+                "label": "Metalen mens",
+                "isCorrect": false
+            },
+            {
+                "label": "Slimme machine",
+                "isCorrect": false
+            },
+            {
+                "label": "Gedwongen arbeid",
+                "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "Hoeveel manen heeft Mars?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "1",
+                "isCorrect": false
+            },
+            {
+                "label": "2",
+                "isCorrect": true
+            },
+            {
+                "label": "3",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de naam van de eerste mens op de maan?",
+        "tags": [
+            "space",
+            "history"
+        ],
+        "answers": [
+            {
+                "label": "Buzz Aldrin",
+                "isCorrect": false
+            },
+            {
+                "label": "Neil Armstrong",
+                "isCorrect": true
+            },
+            {
+                "label": "Yuri Gagarin",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke robot reed als eerste over Mars?",
+        "tags": [
+            "robots",
+            "space"
+        ],
+        "answers": [
+            {
+                "label": "Spirit",
+                "isCorrect": false
+            },
+            {
+                "label": "Sojourner",
+                "isCorrect": true
+            },
+            {
+                "label": "Curiosity",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoe heet ons sterrenstelsel?",
+        "tags": [
+            "space",
+            "galaxy"
+        ],
+        "answers": [
+            {
+                "label": "Andromeda",
+                "isCorrect": false
+            },
+            {
+                "label": "De Melkweg",
+                "isCorrect": true
+            },
+            {
+                "label": "Triangulum",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat gebruiken robots om voorwerpen te pakken?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Grijpers",
+                "isCorrect": true
+            },
+            {
+                "label": "Vingers",
+                "isCorrect": false
+            },
+            {
+                "label": "Haken",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke planeet heeft ringen?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Jupiter",
+                "isCorrect": false
+            },
+            {
+                "label": "Saturnus",
+                "isCorrect": true
+            },
+            {
+                "label": "Uranus",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "In welk jaar landde de eerste mens op de maan?",
+        "tags": [
+            "space",
+            "history"
+        ],
+        "answers": [
+            {
+                "label": "1969",
+                "isCorrect": true
+            },
+            {
+                "label": "1959",
+                "isCorrect": false
+            },
+            {
+                "label": "1979",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een sensor bij een robot?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            },
+            {
+                "label": "Een zintuig",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de grootste planeet in ons zonnestelsel?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Saturnus",
+                "isCorrect": false
+            },
+            {
+                "label": "Neptunus",
+                "isCorrect": false
+            },
+            {
+                "label": "Jupiter",
+                "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "Hoe noem je een robot die eruitziet als een mens?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Humanoïde",
+                "isCorrect": true
+            },
+            {
+                "label": "Android",
+                "isCorrect": false
+            },
+            {
+                "label": "Cyborg",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is het internationale ruimtestation?",
+        "tags": [
+            "space",
+            "stations"
+        ],
+        "answers": [
+            {
+                "label": "ISS",
+                "isCorrect": true
+            },
+            {
+                "label": "NASA",
+                "isCorrect": false
+            },
+            {
+                "label": "ESA",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke kleur heeft Mars?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Blauw",
+                "isCorrect": false
+            },
+            {
+                "label": "Rood",
+                "isCorrect": true
+            },
+            {
+                "label": "Groen",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is AI?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Automatische Instructie",
+                "isCorrect": false
+            },
+            {
+                "label": "Artificiële Intelligentie",
+                "isCorrect": true
+            },
+            {
+                "label": "Astronaut Informatie",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoeveel planeten heeft ons zonnestelsel?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "8",
+                "isCorrect": true
+            },
+            {
+                "label": "9",
+                "isCorrect": false
+            },
+            {
+                "label": "7",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de naam van de Mars-robot die in 2021 landde?",
+        "tags": [
+            "robots",
+            "space"
+        ],
+        "answers": [
+            {
+                "label": "Perseverance",
+                "isCorrect": true
+            },
+            {
+                "label": "Opportunity",
+                "isCorrect": false
+            },
+            {
+                "label": "Curiosity",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een lichtjaar?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Een tijdseenheid",
+                "isCorrect": false
+            },
+            {
+                "label": "Een afstandsmaat",
+                "isCorrect": true
+            },
+            {
+                "label": "Een snelheidsmaat",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welk onderdeel zorgt dat een robot kan bewegen?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Sensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Motor",
+                "isCorrect": true
+            },
+            {
+                "label": "Scherm",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wie was de eerste mens in de ruimte?",
+        "tags": [
+            "space",
+            "history"
+        ],
+        "answers": [
+            {
+                "label": "Yuri Gagarin",
+                "isCorrect": true
+            },
+            {
+                "label": "Alan Shepard",
+                "isCorrect": false
+            },
+            {
+                "label": "Neil Armstrong",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een drone?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een vliegende robot",
+                "isCorrect": true
+            },
+            {
+                "label": "Een zwemmende robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een pratende robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoe heet de ster waar de aarde omheen draait?",
+        "tags": [
+            "space",
+            "solar system"
+        ],
+        "answers": [
+            {
+                "label": "Poolster",
+                "isCorrect": false
+            },
+            {
+                "label": "De Zon",
+                "isCorrect": true
+            },
+            {
+                "label": "Sirius",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat gebruiken robots om te 'zien'?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Ogen",
+                "isCorrect": false
+            },
+            {
+                "label": "Camera's",
+                "isCorrect": true
+            },
+            {
+                "label": "Lampen",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke planeet is het verst van de zon?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Uranus",
+                "isCorrect": false
+            },
+            {
+                "label": "Neptunus",
+                "isCorrect": true
+            },
+            {
+                "label": "Saturnus",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een programma voor een robot?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Instructies om taken uit te voeren",
+                "isCorrect": true
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            },
+            {
+                "label": "Een schroef",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoe heet de maan van de aarde?",
+        "tags": [
+            "space",
+            "moon"
+        ],
+        "answers": [
+            {
+                "label": "Luna",
+                "isCorrect": false
+            },
+            {
+                "label": "De Maan",
+                "isCorrect": false
+            },
+            {
+                "label": "Beide zijn goed",
+                "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "Welke robot helpt thuis met schoonmaken?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Roomba",
+                "isCorrect": true
+            },
+            {
+                "label": "Curiosity",
+                "isCorrect": false
+            },
+            {
+                "label": "ASIMO",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een zwart gat?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Een gat in een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een plek met superveel zwaartekracht",
+                "isCorrect": true
+            },
+            {
+                "label": "Een donkere wolk",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is programmeren?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Robots bouwen",
+                "isCorrect": false
+            },
+            {
+                "label": "Instructies schrijven voor computers",
+                "isCorrect": true
+            },
+            {
+                "label": "Robots repareren",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoelang duurt het voor de aarde rond de zon draait?",
+        "tags": [
+            "space",
+            "solar system"
+        ],
+        "answers": [
+            {
+                "label": "1 dag",
+                "isCorrect": false
+            },
+            {
+                "label": "1 maand",
+                "isCorrect": false
+            },
+            {
+                "label": "1 jaar",
+                "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "Wat is een androidrobot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die eruitziet als een dier",
+                "isCorrect": false
+            },
+            {
+                "label": "Een robot die eruitziet als een mens",
+                "isCorrect": true
+            },
+            {
+                "label": "Een telefoon",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een raket?",
+        "tags": [
+            "space",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een vliegtuig",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ruimtevoertuig",
+                "isCorrect": true
+            },
+            {
+                "label": "Een helikopter",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welk bedrijf maakte de robot ASIMO?",
+        "tags": [
+            "robots",
+            "companies"
+        ],
+        "answers": [
+            {
+                "label": "Honda",
+                "isCorrect": true
+            },
+            {
+                "label": "Toyota",
+                "isCorrect": false
+            },
+            {
+                "label": "Sony",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke planeet heeft de Grote Rode Vlek?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Mars",
+                "isCorrect": false
+            },
+            {
+                "label": "Jupiter",
+                "isCorrect": true
+            },
+            {
+                "label": "Saturnus",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een exoskelet?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een robotpak dat mensen sterker maakt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een ruimtepak",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoe heet de astronaut die als langst in de ruimte was?",
+        "tags": [
+            "space",
+            "history"
+        ],
+        "answers": [
+            {
+                "label": "Scott Kelly",
+                "isCorrect": false
+            },
+            {
+                "label": "Valeri Polyakov",
+                "isCorrect": true
+            },
+            {
+                "label": "Yuri Gagarin",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat betekent 'autonome robot'?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die zelf beslissingen kan nemen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot met wielen",
+                "isCorrect": false
+            },
+            {
+                "label": "Een grote robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een komeet?",
+        "tags": [
+            "space",
+            "objects"
+        ],
+        "answers": [
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ijsbal met een staart",
+                "isCorrect": true
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een microcontroller?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een klein computertje in robots",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een klein batterij",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is zwaartekracht?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "De kracht die dingen naar beneden trekt",
+                "isCorrect": true
+            },
+            {
+                "label": "Windkracht",
+                "isCorrect": false
+            },
+            {
+                "label": "Magnetisme",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een industrierobot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die in fabrieken werkt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een speelgoedrobot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een huishoudrobot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoelang duurt het voordat licht van de zon naar de aarde reist?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "8 seconden",
+                "isCorrect": false
+            },
+            {
+                "label": "8 minuten",
+                "isCorrect": true
+            },
+            {
+                "label": "8 uur",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een actuator?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een onderdeel dat beweging maakt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een satelliet?",
+        "tags": [
+            "space",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een ruimteschip",
+                "isCorrect": false
+            },
+            {
+                "label": "Een voorwerp dat om een planeet draait",
+                "isCorrect": true
+            },
+            {
+                "label": "Een ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een biped robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot met twee benen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot met vier benen",
+                "isCorrect": false
+            },
+            {
+                "label": "Een vliegende robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welk land stuurde als eerste een satelliet de ruimte in?",
+        "tags": [
+            "space",
+            "history"
+        ],
+        "answers": [
+            {
+                "label": "Amerika",
+                "isCorrect": false
+            },
+            {
+                "label": "China",
+                "isCorrect": false
+            },
+            {
+                "label": "Sovjet-Unie",
+                "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "Wat is een servomotor?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een motor die precies kan draaien",
+                "isCorrect": true
+            },
+            {
+                "label": "Een grote motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een elektrische motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een meteoriet?",
+        "tags": [
+            "space",
+            "objects"
+        ],
+        "answers": [
+            {
+                "label": "Een ruimtesteen die op aarde valt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is machine learning?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Robots bouwen",
+                "isCorrect": false
+            },
+            {
+                "label": "Computers die zelf leren",
+                "isCorrect": true
+            },
+            {
+                "label": "Programmeren",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoe heet de ruimtetelescoop die mooie foto's van sterren maakt?",
+        "tags": [
+            "space",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Hubble",
+                "isCorrect": true
+            },
+            {
+                "label": "Kepler",
+                "isCorrect": false
+            },
+            {
+                "label": "Galileo",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een ultrasonische sensor?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een geluidssensor",
+                "isCorrect": true
+            },
+            {
+                "label": "Een lichtsensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een temperatuursensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de dampkring?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "De lucht om een planeet",
+                "isCorrect": true
+            },
+            {
+                "label": "Wolken",
+                "isCorrect": false
+            },
+            {
+                "label": "Water",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een algoritme?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Een stappenplan voor een computer",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een programma",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een astronaut?",
+        "tags": [
+            "space",
+            "people"
+        ],
+        "answers": [
+            {
+                "label": "Een piloot",
+                "isCorrect": false
+            },
+            {
+                "label": "Iemand die naar de ruimte gaat",
+                "isCorrect": true
+            },
+            {
+                "label": "Een wetenschapper",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een LED?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een lampje",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een asteroïde?",
+        "tags": [
+            "space",
+            "objects"
+        ],
+        "answers": [
+            {
+                "label": "Een grote ruimtesteen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat betekent 'remote control'?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Op afstand besturen",
+                "isCorrect": true
+            },
+            {
+                "label": "Automatisch werken",
+                "isCorrect": false
+            },
+            {
+                "label": "Programmeren",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke planeet draait op zijn kant?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Mars",
+                "isCorrect": false
+            },
+            {
+                "label": "Uranus",
+                "isCorrect": true
+            },
+            {
+                "label": "Venus",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een lijnvolger?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die lijnen kan volgen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een pen",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een constellatie?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een groep sterren die een patroon vormen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een joystick?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een besturingsstick",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoe heet de ster die je 's avonds als eerste ziet (maar eigenlijk een planeet is)?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Mars",
+                "isCorrect": false
+            },
+            {
+                "label": "Venus",
+                "isCorrect": true
+            },
+            {
+                "label": "Jupiter",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een piezo-buzzer?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een geluidje-maker",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een ruimtewandeling?",
+        "tags": [
+            "space",
+            "activities"
+        ],
+        "answers": [
+            {
+                "label": "Lopen op de maan",
+                "isCorrect": false
+            },
+            {
+                "label": "Buiten een ruimteschip zweven",
+                "isCorrect": true
+            },
+            {
+                "label": "Wandelen in de ruimte",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een potentiometer?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een draaiknop voor spanning",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een supernova?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een exploderende ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een nieuwe planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een grote ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een infrarood sensor?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een warmtesensor",
+                "isCorrect": true
+            },
+            {
+                "label": "Een geluidssensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lichtsensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een rover?",
+        "tags": [
+            "robots",
+            "space"
+        ],
+        "answers": [
+            {
+                "label": "Een ruimteschip",
+                "isCorrect": false
+            },
+            {
+                "label": "Een rijdende robot op andere planeten",
+                "isCorrect": true
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een robotarm?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een mechanische arm",
+                "isCorrect": true
+            },
+            {
+                "label": "Een speelgoed",
+                "isCorrect": false
+            },
+            {
+                "label": "Een gereedschap",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een baan (orbit)?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Een pad om een planeet",
+                "isCorrect": true
+            },
+            {
+                "label": "Een ruimteschip",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een Arduino?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een bordcomputer voor robots",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de Rode Planeet?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Jupiter",
+                "isCorrect": false
+            },
+            {
+                "label": "Mars",
+                "isCorrect": true
+            },
+            {
+                "label": "Venus",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een Raspberry Pi?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een taartje",
+                "isCorrect": false
+            },
+            {
+                "label": "Een mini-computer",
+                "isCorrect": true
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat zijn sterrenbeelden?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Planeten",
+                "isCorrect": false
+            },
+            {
+                "label": "Patronen van sterren",
+                "isCorrect": true
+            },
+            {
+                "label": "Satellieten",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een encoder?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Meet hoeveel een motor draait",
+                "isCorrect": true
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een zonnevlam?",
+        "tags": [
+            "space",
+            "sun"
+        ],
+        "answers": [
+            {
+                "label": "Een explosie op de zon",
+                "isCorrect": true
+            },
+            {
+                "label": "Een ster",
+                "isCorrect": false
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een gyroscoop?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Meet balans en draaiing",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een wiel",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is zuurstof?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Een gas dat we nodig hebben om te ademen",
+                "isCorrect": true
+            },
+            {
+                "label": "Water",
+                "isCorrect": false
+            },
+            {
+                "label": "Vuur",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een accelerometer?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Meet versnelling en beweging",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is het heelal?",
+        "tags": [
+            "space",
+            "universe"
+        ],
+        "answers": [
+            {
+                "label": "Alleen onze aarde",
+                "isCorrect": false
+            },
+            {
+                "label": "Alles wat bestaat in de ruimte",
+                "isCorrect": true
+            },
+            {
+                "label": "Alleen ons zonnestelsel",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is Bluetooth?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een draadloze verbinding",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleur",
+                "isCorrect": false
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een lancering?",
+        "tags": [
+            "space",
+            "activities"
+        ],
+        "answers": [
+            {
+                "label": "Het opstijgen van een raket",
+                "isCorrect": true
+            },
+            {
+                "label": "Het landen van een raket",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is WiFi?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een draadloos internet",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een ruimtepak?",
+        "tags": [
+            "space",
+            "equipment"
+        ],
+        "answers": [
+            {
+                "label": "Speciale kleding voor in de ruimte",
+                "isCorrect": true
+            },
+            {
+                "label": "Een gewoon pak",
+                "isCorrect": false
+            },
+            {
+                "label": "Een robotpak",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een QR-code?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een zwart-wit vierkantje met informatie",
+                "isCorrect": true
+            },
+            {
+                "label": "Een barcode",
+                "isCorrect": false
+            },
+            {
+                "label": "Een plaatje",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een meteorenregen?",
+        "tags": [
+            "space",
+            "events"
+        ],
+        "answers": [
+            {
+                "label": "Veel vallende sterren tegelijk",
+                "isCorrect": true
+            },
+            {
+                "label": "Regen in de ruimte",
+                "isCorrect": false
+            },
+            {
+                "label": "Een storm",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is 3D-printen?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Dingen maken laag voor laag",
+                "isCorrect": true
+            },
+            {
+                "label": "Gewoon printen",
+                "isCorrect": false
+            },
+            {
+                "label": "Tekenen",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een volle maan?",
+        "tags": [
+            "space",
+            "moon"
+        ],
+        "answers": [
+            {
+                "label": "Als de hele maan verlicht is",
+                "isCorrect": true
+            },
+            {
+                "label": "Als de maan groot is",
+                "isCorrect": false
+            },
+            {
+                "label": "Als de maan geel is",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een transistor?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een elektronisch schakelaar",
+                "isCorrect": true
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een maansverduistering?",
+        "tags": [
+            "space",
+            "events"
+        ],
+        "answers": [
+            {
+                "label": "Als de maan achter de aarde komt",
+                "isCorrect": true
+            },
+            {
+                "label": "Als de maan verdwijnt",
+                "isCorrect": false
+            },
+            {
+                "label": "Als de maan rood is",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een weerstand (resistor)?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Vertraagt elektrische stroom",
+                "isCorrect": true
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de Grote Beer?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een dier",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sterrenbeeld",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een condensator?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Slaat elektriciteit op",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Hoeveel tijd verschil is er tussen aarde en Mars voor signalen?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "3 minuten",
+                "isCorrect": false
+            },
+            {
+                "label": "3-22 minuten",
+                "isCorrect": true
+            },
+            {
+                "label": "1 uur",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een touchscreen?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een scherm dat je kunt aanraken",
+                "isCorrect": true
+            },
+            {
+                "label": "Een gewoon scherm",
+                "isCorrect": false
+            },
+            {
+                "label": "Een knop",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een ruimtestation?",
+        "tags": [
+            "space",
+            "stations"
+        ],
+        "answers": [
+            {
+                "label": "Een huis in de ruimte",
+                "isCorrect": true
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een raket",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een OLED-scherm?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een soort display",
+                "isCorrect": true
+            },
+            {
+                "label": "Een lamp",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een dwergplaneet?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Een kleine planeet zoals Pluto",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine maan",
+                "isCorrect": false
+            },
+            {
+                "label": "Een asteroïde",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een magnetisch veld?",
+        "tags": [
+            "robots",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "De kracht rondom een magneet",
+                "isCorrect": true
+            },
+            {
+                "label": "Elektriciteit",
+                "isCorrect": false
+            },
+            {
+                "label": "Zwaartekracht",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een Space Shuttle?",
+        "tags": [
+            "space",
+            "vehicles"
+        ],
+        "answers": [
+            {
+                "label": "Een herbruikbaar ruimtevaartuig",
+                "isCorrect": true
+            },
+            {
+                "label": "Een raket",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een breadboard?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een bord om circuits te testen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een snijplank",
+                "isCorrect": false
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een kraternevel?",
+        "tags": [
+            "space",
+            "nebulae"
+        ],
+        "answers": [
+            {
+                "label": "Overblijfselen van een geëxplodeerde ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een GPIO-pin?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een aansluiting op een computer",
+                "isCorrect": true
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is SpaceX?",
+        "tags": [
+            "space",
+            "companies"
+        ],
+        "answers": [
+            {
+                "label": "Een ruimtevaartbedrijf",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is Python?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Een programmeertaal",
+                "isCorrect": true
+            },
+            {
+                "label": "Een slang",
+                "isCorrect": false
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de Melkweg?",
+        "tags": [
+            "space",
+            "galaxy"
+        ],
+        "answers": [
+            {
+                "label": "Een chocoladereep",
+                "isCorrect": false
+            },
+            {
+                "label": "Ons sterrenstelsel",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een variable (variabele)?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Een plekje in het geheugen voor informatie",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een pulsar?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een draaiende neutronenster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een loop in programmeren?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Iets dat zich herhaalt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een fout",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een exoplaneet?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Een planeet buiten ons zonnestelsel",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is debugging?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Fouten zoeken in code",
+                "isCorrect": true
+            },
+            {
+                "label": "Robots bouwen",
+                "isCorrect": false
+            },
+            {
+                "label": "Programmeren",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de Andromedanevel?",
+        "tags": [
+            "space",
+            "galaxy"
+        ],
+        "answers": [
+            {
+                "label": "Het dichtstbijzijnde sterrenstelsel",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een if-statement?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Een keuze in code maken",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een quasar?",
+        "tags": [
+            "space",
+            "objects"
+        ],
+        "answers": [
+            {
+                "label": "Een heel helder object in de ruimte",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een functie in programmeren?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Een stukje code dat je vaker kunt gebruiken",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is donkere materie?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Onzichtbare materie in het heelal",
+                "isCorrect": true
+            },
+            {
+                "label": "Zwarte verf",
+                "isCorrect": false
+            },
+            {
+                "label": "Een zwart gat",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is Scratch?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Een programmeertaal voor kinderen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een kosmische straling?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Gevaarlijke straling uit de ruimte",
+                "isCorrect": true
+            },
+            {
+                "label": "Zonlicht",
+                "isCorrect": false
+            },
+            {
+                "label": "Sterren",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is LEGO Mindstorms?",
+        "tags": [
+            "robots",
+            "toys"
+        ],
+        "answers": [
+            {
+                "label": "Een bouwpakket voor robots",
+                "isCorrect": true
+            },
+            {
+                "label": "Een videospel",
+                "isCorrect": false
+            },
+            {
+                "label": "Een film",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een rode reus?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een oude, grote ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een hexapod?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot met zes poten",
+                "isCorrect": true
+            },
+            {
+                "label": "Een insect",
+                "isCorrect": false
+            },
+            {
+                "label": "Een spinnenrobot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een witte dwerg?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een kleine, oude ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sneeuwbal",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een cobotrobot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die samenwerkt met mensen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een speelgoedrobot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een neutronenster?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een superkleine, zware ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een swarm robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Veel kleine robots die samenwerken",
+                "isCorrect": true
+            },
+            {
+                "label": "Een grote robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een vliegende robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een bruine dwerg?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Een mislukte ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een nanorobot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een superkleine robot",
+                "isCorrect": true
+            },
+            {
+                "label": "Een grote robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een snelle robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is antimaterie?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Het tegenovergestelde van normale materie",
+                "isCorrect": true
+            },
+            {
+                "label": "Zwarte materie",
+                "isCorrect": false
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een telepresence robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot waar je op afstand doorheen kunt communiceren",
+                "isCorrect": true
+            },
+            {
+                "label": "Een telefoon",
+                "isCorrect": false
+            },
+            {
+                "label": "Een camera",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een supermaan?",
+        "tags": [
+            "space",
+            "moon"
+        ],
+        "answers": [
+            {
+                "label": "Als de maan extra groot lijkt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een nieuwe maan",
+                "isCorrect": false
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een sociale robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die met mensen kan praten",
+                "isCorrect": true
+            },
+            {
+                "label": "Een grote robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een industrierobot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een blauwe maan?",
+        "tags": [
+            "space",
+            "moon"
+        ],
+        "answers": [
+            {
+                "label": "De tweede volle maan in een maand",
+                "isCorrect": true
+            },
+            {
+                "label": "Een blauwe planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan van Neptunus",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een soft robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot van zachte materialen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een vriendelijke robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een kleine robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een transite?",
+        "tags": [
+            "space",
+            "events"
+        ],
+        "answers": [
+            {
+                "label": "Als een planeet voor de zon langskomt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is biomimicry in robots?",
+        "tags": [
+            "robots",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Robots die dieren nabootsen",
+                "isCorrect": true
+            },
+            {
+                "label": "Robots die planten zijn",
+                "isCorrect": false
+            },
+            {
+                "label": "Robots voor biologie",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een nevel?",
+        "tags": [
+            "space",
+            "nebulae"
+        ],
+        "answers": [
+            {
+                "label": "Een wolk van gas en stof in de ruimte",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een modular robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die je kunt ombouwen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een speelgoedrobot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is gravitatiegolven?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Golven in ruimte en tijd",
+                "isCorrect": true
+            },
+            {
+                "label": "Watergolven",
+                "isCorrect": false
+            },
+            {
+                "label": "Geluidsgolven",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een haptic feedback?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Als een robot terugtrilt of duwt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een geluid",
+                "isCorrect": false
+            },
+            {
+                "label": "Een lampje",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een trojaan (bij planeten)?",
+        "tags": [
+            "space",
+            "objects"
+        ],
+        "answers": [
+            {
+                "label": "Een object dat een planeet volgt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een collaborative robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot die veilig met mensen werkt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een grote robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een snelle robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een bolvormige sterrenhoop?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Heel veel sterren bij elkaar",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een end effector?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Het werktuig aan het einde van een robotarm",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is het Kuipergordel?",
+        "tags": [
+            "space",
+            "solar system"
+        ],
+        "answers": [
+            {
+                "label": "Een ring van ijsklompen voorbij Neptunus",
+                "isCorrect": true
+            },
+            {
+                "label": "Een gordel voor astronauten",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een gripper?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een grijpding van een robot",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de Oortwolk?",
+        "tags": [
+            "space",
+            "solar system"
+        ],
+        "answers": [
+            {
+                "label": "Een wolk van kometen ver weg",
+                "isCorrect": true
+            },
+            {
+                "label": "Een nevel",
+                "isCorrect": false
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een quadruped robot?",
+        "tags": [
+            "robots",
+            "types"
+        ],
+        "answers": [
+            {
+                "label": "Een robot met vier poten",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot met twee poten",
+                "isCorrect": false
+            },
+            {
+                "label": "Een vliegende robot",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een planetaire nevel?",
+        "tags": [
+            "space",
+            "nebulae"
+        ],
+        "answers": [
+            {
+                "label": "Gas van een oude ster",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is kinematics?",
+        "tags": [
+            "robots",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "De wetenschap van robotbewegingen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een Lagrangepunt?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Een plek waar zwaartekracht in evenwicht is",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is computer vision?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Als robots kunnen 'zien' en herkennen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een scherm",
+                "isCorrect": false
+            },
+            {
+                "label": "Een camera",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is de ecliptica?",
+        "tags": [
+            "space",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Het pad van de zon aan de hemel",
+                "isCorrect": true
+            },
+            {
+                "label": "Een eclips",
+                "isCorrect": false
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een SLAM-algoritme?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Helpt robots een kaart maken",
+                "isCorrect": true
+            },
+            {
+                "label": "Een geluid",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een reuzenplaneet?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Een grote gasplaneet",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een payload op een robot?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Het gewicht dat een robot kan dragen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een batterij",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een rotsplaneet?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Een planeet van steen zoals de aarde",
+                "isCorrect": true
+            },
+            {
+                "label": "Een grote planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een teachpendant?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een afstandsbediening voor industrierobots",
+                "isCorrect": true
+            },
+            {
+                "label": "Een potlood",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een binaire ster?",
+        "tags": [
+            "space",
+            "stars"
+        ],
+        "answers": [
+            {
+                "label": "Twee sterren die om elkaar draaien",
+                "isCorrect": true
+            },
+            {
+                "label": "Een ster met twee planeten",
+                "isCorrect": false
+            },
+            {
+                "label": "Een grote ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een torque sensor?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Meet de kracht in een robotgewricht",
+                "isCorrect": true
+            },
+            {
+                "label": "Een lichtsensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een geluidssensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een planetoïde?",
+        "tags": [
+            "space",
+            "objects"
+        ],
+        "answers": [
+            {
+                "label": "Een andere naam voor asteroïde",
+                "isCorrect": true
+            },
+            {
+                "label": "Een kleine planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een maan",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is ROS (Robot Operating System)?",
+        "tags": [
+            "robots",
+            "programming"
+        ],
+        "answers": [
+            {
+                "label": "Software om robots te programmeren",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot",
+                "isCorrect": false
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een eclips?",
+        "tags": [
+            "space",
+            "events"
+        ],
+        "answers": [
+            {
+                "label": "Als de zon of maan bedekt wordt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ster",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een degrees of freedom (bij robots)?",
+        "tags": [
+            "robots",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Hoeveel kanten een robot kan bewegen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een motor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een sensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke robot is beroemd geworden door achterwaarts te lopen?",
+        "tags": [
+            "robots",
+            "famous"
+        ],
+        "answers": [
+            {
+                "label": "Spot van Boston Dynamics",
+                "isCorrect": true
+            },
+            {
+                "label": "ASIMO",
+                "isCorrect": false
+            },
+            {
+                "label": "Pepper",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een space probe?",
+        "tags": [
+            "space",
+            "vehicles"
+        ],
+        "answers": [
+            {
+                "label": "Een onbemand ruimtevaartuig",
+                "isCorrect": true
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een telescoop",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is lidar?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Afstand meten met laserlicht",
+                "isCorrect": true
+            },
+            {
+                "label": "Een soort radar",
+                "isCorrect": false
+            },
+            {
+                "label": "Een camera",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is het verschil tussen een robot en een machine?",
+        "tags": [
+            "robots",
+            "science"
+        ],
+        "answers": [
+            {
+                "label": "Een robot kan zich aanpassen aan verschillende taken",
+                "isCorrect": true
+            },
+            {
+                "label": "Een robot is groter",
+                "isCorrect": false
+            },
+            {
+                "label": "Geen verschil",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een ringplaneet?",
+        "tags": [
+            "space",
+            "planets"
+        ],
+        "answers": [
+            {
+                "label": "Een planeet met ringen eromheen",
+                "isCorrect": true
+            },
+            {
+                "label": "Een ronde planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een kleine planeet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welke vorm van AI wordt het meest gebruikt in moderne robots?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Machine learning",
+                "isCorrect": true
+            },
+            {
+                "label": "Symbolische AI",
+                "isCorrect": false
+            },
+            {
+                "label": "Expert systemen",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een solar sail?",
+        "tags": [
+            "space",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Een zeil dat duwt met zonlicht",
+                "isCorrect": true
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een ruimteschip",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een force sensor?",
+        "tags": [
+            "robots",
+            "technology"
+        ],
+        "answers": [
+            {
+                "label": "Meet hoeveel kracht wordt gebruikt",
+                "isCorrect": true
+            },
+            {
+                "label": "Een lichtsensor",
+                "isCorrect": false
+            },
+            {
+                "label": "Een geluidssensor",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Wat is een interstellaire ruimte?",
+        "tags": [
+            "space",
+            "universe"
+        ],
+        "answers": [
+            {
+                "label": "De ruimte tussen de sterren",
+                "isCorrect": true
+            },
+            {
+                "label": "Een planeet",
+                "isCorrect": false
+            },
+            {
+                "label": "Een satelliet",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Welk materiaal wordt vaak gebruikt voor robotwielen om grip te krijgen?",
+        "tags": [
+            "robots",
+            "materials"
+        ],
+        "answers": [
+            {
+                "label": "Rubber",
+                "isCorrect": true
+            },
+            {
+                "label": "Plastic",
+                "isCorrect": false
+            },
+            {
+                "label": "Metaal",
+                "isCorrect": false
+            }
+        ]
+    }
+]
