@@ -17,7 +17,7 @@ const Workbench = ({ children }) => {
             </div> */}
 
             {/* Main Content Area - A big piece of paper on the desk */}
-            <div className="relative w-full max-w-5xl aspect-video bg-[#fdfbf7] shadow-2xl p-8 flex flex-col items-center justify-center border-none rotate-1 transform transition-transform duration-700 hover:rotate-0">
+            <div className="relative w-full max-w-5xl aspect-video bg-[#fdfbf7] shadow-2xl p-8 flex flex-col items-center justify-center border-none transition-transform duration-700">
                 {/* Paper texture/noise could go here */}
                 {children}
             </div>
