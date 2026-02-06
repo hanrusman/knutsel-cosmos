@@ -259,7 +259,7 @@ const AdminScreen = ({ onBack }) => {
                 </CardboardButton>
             </div>
 
-            <div className="w-full h-full flex flex-col p-4 bg-white/90 overflow-y-auto custom-scrollbar rounded-lg border-2 border-gray-400">
+            <div className="flex-1 w-full min-h-0 flex flex-col p-4 bg-white/90 overflow-y-auto custom-scrollbar rounded-lg border-2 border-gray-400">
 
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-3xl font-bold font-hand">

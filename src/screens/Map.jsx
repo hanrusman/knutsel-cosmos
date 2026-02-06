@@ -24,7 +24,7 @@ const MapScreen = ({ onBack, onSelectLevel }) => {
                 </CardboardButton>
             </div>
 
-            <div className="w-full h-full overflow-x-auto overflow-y-hidden custom-scrollbar relative flex items-center">
+            <div className="flex-1 w-full min-h-0 overflow-x-auto overflow-y-hidden custom-scrollbar relative flex items-center">
                 {/* Paper Map Background */}
                 <div className="absolute inset-x-0 h-4/5 mx-8 bg-white opacity-80 rotate-1 shadow-md border-2 border-gray-300 rounded-sm transform origin-left" style={{ minWidth: '1000px' }}>
                     {/* Crumpled paper texture overlay could go here */}
