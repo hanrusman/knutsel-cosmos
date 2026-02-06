@@ -13,9 +13,9 @@ const Home = ({ onNavigateToMap, onNavigateToShop, onNavigateToAdmin }) => {
             <div className="flex flex-col items-center gap-8 w-full relative">
                 <button
                     onClick={onNavigateToAdmin}
-                    className="absolute -top-12 -left-32 text-gray-300 hover:text-gray-500 text-xs uppercase tracking-widest"
+                    className="fixed bottom-4 right-4 text-gray-400 hover:text-gray-800 text-xs uppercase tracking-widest z-50 font-bold bg-white/50 px-2 py-1 rounded border border-gray-300"
                 >
-                    Admin
+                    Admin 🔒
                 </button>
 
                 {/* Sparky Section */}
