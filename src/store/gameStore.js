@@ -81,7 +81,15 @@ const useGameStore = create(
             })
         }),
         {
-            name: 'sparky-storage', // unique name
+            name: 'sparky-storage',
+            partialize: (state) => ({
+                gears: state.gears,
+                coins: state.coins,
+                unlockedLevels: state.unlockedLevels,
+                inventory: state.inventory,
+                equippedItems: state.equippedItems
+                // Explicitly EXCLUDE 'shopItems' so new code updates apply
+            }),
         }
     )
 );
