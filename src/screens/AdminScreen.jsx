@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Workbench from '../components/layout/Workbench';
 import CardboardButton from '../components/ui/CardboardButton';
 import { QuestionService } from '../services/QuestionService';
+import useGameStore from '../store/gameStore';
 
 const AdminScreen = ({ onBack }) => {
     const [questions, setQuestions] = useState([]);
@@ -120,6 +121,42 @@ const AdminScreen = ({ onBack }) => {
         }
     };
 
+    // New Handlers for Phase 9
+    const handleDeleteAll = async () => {
+        if (confirm("WEET JE HET ZEKER? 😱\n\nDit verwijdert ALLE vragen en statistieken uit de database. Dit kan niet ongedaan worden gemaakt!")) {
+            if (confirm("Echt heel zeker? 100%?")) {
+                setLoading(true);
+                try {
+                    await QuestionService.deleteAll();
+                    await loadData();
+                    alert("Poef! Alles is weg.");
+                } catch (e) {
+                    alert("Fout: " + e.message);
+                } finally {
+                    setLoading(false);
+                }
+            }
+        }
+    };
+
+    const { resetProgress } = useGameStore.getState(); // Get action via getState to avoid hook rule issues if calling outside, but inside component is fine to use hook.
+    // Actually better to use hook at top level
+
+    const handleFactoryReset = async () => {
+        if (confirm("⚠️ FABRIEKSINSTELLINGEN TERUGZETTEN?\n\nJe verliest al je muntjes, items en level voortgang.")) {
+            try {
+                // 1. Reset Backend Stats
+                await QuestionService.resetStats();
+                // 2. Reset Frontend Store
+                useGameStore.getState().resetProgress(); // Direct access
+                alert("De app is gereset! Veel plezier met opnieuw beginnen.");
+                window.location.reload(); // Hard reload to clear any lingering layout state
+            } catch (e) {
+                alert("Reset mislukt: " + e.message);
+            }
+        }
+    };
+
     return (
         <Workbench>
             {editingQuestion && (
@@ -187,6 +224,7 @@ const AdminScreen = ({ onBack }) => {
                     <div className="flex gap-2">
                         <button onClick={() => setView('list')} className="bg-blue-500 text-white px-4 py-2 rounded">Lijst</button>
                         <button onClick={() => setView('bulk')} className="bg-gray-700 text-white px-4 py-2 rounded">Bulk Import</button>
+                        <button onClick={() => setView('settings')} className="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
                     </div>
                 </div>
 
@@ -247,7 +285,13 @@ const AdminScreen = ({ onBack }) => {
                             placeholder='[{"question": "...", "answers": [...], "tags": ["space"]}]'
                             disabled={loading}
                         />
-                        <div className="flex justify-end">
+                        <div className="flex justify-end gap-2">
+                            <CardboardButton
+                                onClick={handleDeleteAll}
+                                className={`bg-red-100 !border-red-600 text-red-800 ${loading ? 'opacity-50 pointer-events-none' : ''}`}
+                            >
+                                🗑️ ALLES WISSEN
+                            </CardboardButton>
                             <CardboardButton
                                 onClick={handleBulkSave}
                                 className={`bg-green-100 !border-green-600 ${loading ? 'opacity-50 pointer-events-none' : ''}`}
@@ -255,6 +299,22 @@ const AdminScreen = ({ onBack }) => {
                                 {loading ? 'BEZIG...' : 'OPSLAAN'}
                             </CardboardButton>
                         </div>
+                    </div>
+                )}
+
+                {view === 'settings' && (
+                    <div className="flex flex-col items-center justify-center h-full gap-8 p-8">
+                        <div className="text-center">
+                            <h2 className="text-2xl font-bold mb-2">GEVAAR ZONE ⚠️</h2>
+                            <p className="text-gray-600 max-w-md">Hier kun je de app volledig resetten. Dit wist alle voortgang, muntjes en statistieken.</p>
+                        </div>
+
+                        <CardboardButton
+                            onClick={handleFactoryReset}
+                            className="bg-red-500 !text-white !border-red-800 text-xl"
+                        >
+                            💥 FACTORY RESET (ALLES WISSEN)
+                        </CardboardButton>
                     </div>
                 )}
 

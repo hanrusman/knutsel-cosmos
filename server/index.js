@@ -113,7 +113,22 @@ app.post('/api/questions', (req, res) => {
     }
 });
 
-// DELETE a question
+// DELETE ALL questions (Bulk Delete)
+app.delete('/api/questions', (req, res) => {
+    try {
+        const stmt = db.prepare('DELETE FROM questions');
+        const info = stmt.run();
+        // Also clear attempts as they reference questions
+        db.prepare('DELETE FROM attempts').run();
+
+        res.json({ success: true, changes: info.changes });
+    } catch (err) {
+        console.error('Error deleting all questions:', err);
+        res.status(500).json({ error: 'Failed to delete all questions' });
+    }
+});
+
+// DELETE a specific question
 app.delete('/api/questions/:id', (req, res) => {
     const { id } = req.params;
     try {
@@ -121,6 +136,11 @@ app.delete('/api/questions/:id', (req, res) => {
         const info = stmt.run(id);
 
         if (info.changes > 0) {
+            // Cleanup orphans in attempts? SQLite foreign key cascade might handle if enabled, 
+            // but for safety/simplicity let's manually clean or rely on logic.
+            // Actually, we should allow attempts to stay or clear them. 
+            // Let's clear attempts for this question to keep data clean.
+            db.prepare('DELETE FROM attempts WHERE question_id = ?').run(id);
             res.json({ success: true });
         } else {
             res.status(404).json({ error: 'Question not found' });
@@ -128,6 +148,17 @@ app.delete('/api/questions/:id', (req, res) => {
     } catch (err) {
         console.error('Error deleting question:', err);
         res.status(500).json({ error: 'Failed to delete question' });
+    }
+});
+
+// RESET APP DATA (Clear Stats/Attempts)
+app.post('/api/reset', (req, res) => {
+    try {
+        db.prepare('DELETE FROM attempts').run();
+        res.json({ success: true });
+    } catch (err) {
+        console.error('Error resetting app data:', err);
+        res.status(500).json({ error: 'Failed to reset app data' });
     }
 });
 

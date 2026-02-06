@@ -35,18 +35,21 @@ const useGameStore = create(
 
             purchaseItem: (itemId) => {
                 const state = get();
+                // Find item in definition
                 const item = state.shopItems.find(i => i.id === itemId);
 
-                // Validation: Item exists, Player can afford, Player doesn't own it
-                if (item && state.coins >= item.cost && !state.inventory.includes(itemId)) {
-                    set({
-                        coins: state.coins - item.cost,
-                        inventory: [...state.inventory, itemId],
-                        equippedItems: [...state.equippedItems, itemId] // Auto-equip
-                    });
-                    return true; // Purchase successful
-                }
-                return false; // Purchase failed
+                // Validation checks
+                if (!item) return false; // Item not found
+                if (state.inventory.includes(itemId)) return false; // Already owned
+                if (state.coins < item.cost) return false; // Too poor
+
+                // Execute Purchase
+                set((state) => ({
+                    coins: state.coins - item.cost,
+                    inventory: [...state.inventory, itemId],
+                    equippedItems: [...state.equippedItems, itemId] // Auto-equip on buy
+                }));
+                return true;
             },
 
             toggleEquip: (itemId) => set((state) => {
@@ -59,6 +62,15 @@ const useGameStore = create(
                         ? state.equippedItems.filter(id => id !== itemId)
                         : [...state.equippedItems, itemId]
                 };
+            }),
+
+            // Factory Reset
+            resetProgress: () => set({
+                gears: 0,
+                coins: 50,
+                unlockedLevels: [1],
+                inventory: [],
+                equippedItems: []
             })
         }),
         {

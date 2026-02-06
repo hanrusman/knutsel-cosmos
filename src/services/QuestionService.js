@@ -95,6 +95,32 @@ export const QuestionService = {
         }
     },
 
+    deleteAll: async () => {
+        try {
+            const res = await fetch(API_URL, {
+                method: 'DELETE'
+            });
+            if (!res.ok) throw new Error('Failed to delete all questions');
+            return true;
+        } catch (error) {
+            console.error('Error deleting all questions:', error);
+            throw error;
+        }
+    },
+
+    resetStats: async () => {
+        try {
+            const res = await fetch('/api/reset', {
+                method: 'POST'
+            });
+            if (!res.ok) throw new Error('Failed to reset stats');
+            return true;
+        } catch (error) {
+            console.error('Error resetting stats:', error);
+            throw error;
+        }
+    },
+
     updateQuestion: async (id, question) => {
         try {
             const res = await fetch(`${API_URL}/${id}`, {
