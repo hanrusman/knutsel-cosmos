@@ -8,7 +8,8 @@ const Workbench = ({ children }) => {
                 backgroundImage: "url('/assets/bg-workbench-v2.png')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed' // Ensures bg stays put while content scrolls
             }}
         >
             {/* Background Texture Overlay (Optional, using CSS pattern later) */}
