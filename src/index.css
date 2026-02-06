@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-hand: "Patrick Hand", cursive;
+  --font-sans: "Patrick Hand", cursive;
+
+  --color-cardboard-light: #e6ccb2;
+  --color-cardboard: #d2b48c;
+  --color-cardboard-dark: #b08d55;
+
+  --color-paper: #f4e4bc;
+  --color-workbench: #3e3e42;
+
+  --shadow-cardboard: 4px 4px 0px 0px rgba(0, 0, 0, 0.3);
+
+  --rotate-1: 1deg;
+  --rotate-minus-1: -1deg;
+  --rotate-2: 2deg;
+  --rotate-minus-2: -2deg;
+}
+
+@layer base {
+  body {
+    @apply font-hand text-gray-900 overflow-hidden bg-workbench select-none;
+  }
+}

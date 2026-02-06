@@ -1,0 +1,23 @@
+{
+  "name": "Sparky's Scrapbook",
+  "short_name": "Sparky",
+  "description": "Een educatieve scrapboek reis door de ruimte!",
+  "theme_color": "#3e3e42",
+  "background_color": "#3e3e42",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
