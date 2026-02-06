@@ -10,7 +10,7 @@ const Home = ({ onNavigateToMap, onNavigateToShop, onNavigateToAdmin }) => {
 
     return (
         <Workbench>
-            <div className="flex flex-col items-center gap-8 w-full relative">
+            <div className="flex flex-col items-center justify-center h-full w-full relative gap-4">
                 <button
                     onClick={onNavigateToAdmin}
                     className="fixed bottom-4 right-4 text-gray-400 hover:text-gray-800 text-xs uppercase tracking-widest z-50 font-bold bg-white/50 px-2 py-1 rounded border border-gray-300"
@@ -19,12 +19,12 @@ const Home = ({ onNavigateToMap, onNavigateToShop, onNavigateToAdmin }) => {
                 </button>
 
                 {/* Sparky Section */}
-                <div className="flex-1 flex items-center justify-center p-8">
+                <div className="flex items-center justify-center flex-1 min-h-0">
                     <SparkyAvatar equipped={equippedItems} />
                 </div>
 
                 {/* Buttons Section */}
-                <div className="flex gap-8 w-full justify-center">
+                <div className="flex gap-8 w-full justify-center pb-6 shrink-0">
                     <CardboardButton onClick={onNavigateToMap}>
                         NAAR DE KAART
                     </CardboardButton>

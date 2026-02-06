@@ -44,26 +44,23 @@ const ShopScreen = ({ onBack }) => {
                 </CardboardButton>
             </div>
 
-            <div className="flex flex-col w-full h-full items-center p-4">
-                {/* Header with Coin Balance and Avatar */}
-                <div className="flex flex-col items-center mb-8 relative w-full max-w-4xl z-10 shrink-0">
-                    <div className="absolute top-0 right-0 z-20">
-                        <div className="bg-yellow-100 px-6 py-2 border-2 border-yellow-600 rounded-full shadow-md flex items-center gap-2 text-2xl font-bold rotate-1 animate-bounce-slow">
-                            <span>🪙</span>
-                            <span>{coins}</span>
-                        </div>
-                    </div>
-
-                    <h1 className="text-5xl font-black bg-white px-8 py-4 rotate-minus-2 border-4 border-dashed border-gray-800 shadow-xl mb-4 font-hand transform hover:scale-105 transition-transform duration-300">
+            <div className="flex flex-col w-full h-full items-center p-2">
+                {/* Compact Header Row: Back + Title + Sparky Preview + Coins */}
+                <div className="flex items-center justify-between w-full max-w-5xl mb-2 shrink-0 relative z-10">
+                    {/* Title */}
+                    <h1 className="text-3xl font-black bg-white px-5 py-2 rotate-minus-2 border-4 border-dashed border-gray-800 shadow-xl font-hand">
                         DE ROMMELMARKT
                     </h1>
 
-                    {/* Live Preview of Sparky */}
-                    <div className="scale-75 origin-top relative group">
-                        <div className="absolute -left-20 top-20 bg-white p-2 rounded-lg border-2 border-gray-400 rotate-minus-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p className="font-hand font-bold">"Ik zie er fantastisch uit!"</p>
-                        </div>
+                    {/* Mini Sparky Preview */}
+                    <div className="scale-[0.35] origin-center relative -my-16">
                         <SparkyAvatar equipped={equippedItems} />
+                    </div>
+
+                    {/* Coin Balance */}
+                    <div className="bg-yellow-100 px-5 py-2 border-2 border-yellow-600 rounded-full shadow-md flex items-center gap-2 text-xl font-bold rotate-1">
+                        <span className="text-yellow-500 text-2xl">●</span>
+                        <span>{coins}</span>
                     </div>
                 </div>
 

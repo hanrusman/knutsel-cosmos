@@ -149,7 +149,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
             </div>
 
             {!quizCompleted ? (
-                <div className="flex flex-col items-center justify-between h-full w-full py-4 gap-4">
+                <div className="flex flex-col items-center justify-center h-full w-full py-4 gap-6">
 
                     {/* Progress Indicator */}
                     <div className="absolute top-4 right-4 bg-paper border border-gray-400 px-3 py-1 font-bold rotate-2">
@@ -157,60 +157,71 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                     </div>
 
                     {/* Question Header */}
-                    <div className="bg-paper p-6 rotate-1 shadow-md border border-gray-300 max-w-2xl text-center">
+                    <div className="bg-paper p-5 rotate-1 shadow-md border border-gray-300 max-w-2xl text-center">
                         <h2 className="text-3xl font-bold text-gray-800 leading-tight">
                             {currentQuestion.question}
                         </h2>
                     </div>
 
-                    {/* Answers Grid */}
-                    <div className="flex gap-8 items-center justify-center w-full flex-1">
-                        {currentQuestion.answers.map((answer, idx) => (
-                            <motion.div
-                                key={answer.id || idx} /* Fix key using ID if available */
-                                className="relative group cursor-pointer"
-                                whileHover={!answered ? { scale: 1.05, rotate: Math.random() * 4 - 2 } : {}}
-                                onClick={() => !answered && handleAnswer(answer)}
-                            >
-                                {/* Polaroid Frame */}
-                                <div className="bg-white p-4 pb-12 shadow-cardboard border border-gray-200 rotate-1 transition-transform group-hover:rotate-0 w-64 aspect-square flex flex-col">
-                                    <div className="flex-1 w-full bg-gray-200 inner-shadow flex items-center justify-center overflow-hidden relative" style={{ backgroundColor: answer.color || '#e5e7eb' }}>
-                                        {answer.image ? (
-                                            <img src={answer.image} alt={answer.label} className="w-full h-full object-cover" />
+                    {/* Answers Grid - adaptive based on whether images exist */}
+                    {(() => {
+                        const hasImages = currentQuestion.answers.some(a => a.image);
+                        return (
+                            <div className={`flex gap-6 items-stretch justify-center w-full max-w-4xl px-4 ${hasImages ? '' : 'max-w-3xl'}`}>
+                                {currentQuestion.answers.map((answer, idx) => (
+                                    <motion.div
+                                        key={answer.id || answer.label || idx}
+                                        className="relative group cursor-pointer flex-1"
+                                        whileHover={!answered ? { scale: 1.05, rotate: idx % 2 === 0 ? 2 : -2 } : {}}
+                                        onClick={() => !answered && handleAnswer(answer)}
+                                    >
+                                        {hasImages ? (
+                                            /* Image-based card (Polaroid style) */
+                                            <div className="bg-white p-3 pb-10 shadow-cardboard border border-gray-200 rotate-1 transition-transform group-hover:rotate-0 h-full flex flex-col">
+                                                <div className="flex-1 w-full bg-gray-200 flex items-center justify-center overflow-hidden relative" style={{ backgroundColor: answer.color || '#e5e7eb' }}>
+                                                    {answer.image ? (
+                                                        <img src={answer.image} alt={answer.label} className="w-full h-full object-contain p-2" />
+                                                    ) : (
+                                                        <div className="text-5xl opacity-30 font-hand font-bold">?</div>
+                                                    )}
+                                                </div>
+                                                <div className="absolute bottom-1.5 left-0 w-full text-center font-bold text-lg text-gray-700 uppercase">
+                                                    {answer.label}
+                                                </div>
+                                            </div>
                                         ) : (
-                                            <div className="w-full h-full flex flex-col items-center justify-center opacity-40">
-                                                <span className="text-6xl font-hand font-bold rotate-12 select-none">?</span>
-                                                <span className="text-xs font-serif italic mt-2 text-center px-2">
-                                                    (Verbeelding<br />nodig)
+                                            /* Text-only card (big label) */
+                                            <div className="bg-white p-6 shadow-cardboard border-2 border-gray-200 rotate-1 transition-transform group-hover:rotate-0 h-full flex items-center justify-center min-h-[140px]"
+                                                style={{ backgroundColor: answer.color || '#fdfbf7' }}
+                                            >
+                                                <span className="text-xl font-bold text-gray-800 text-center uppercase leading-tight">
+                                                    {answer.label}
                                                 </span>
                                             </div>
                                         )}
-                                    </div>
-                                    <div className="absolute bottom-2 left-0 w-full text-center font-bold text-xl text-gray-700 uppercase">
-                                        {answer.label}
-                                    </div>
-                                </div>
 
-                                {/* Status Overlay */}
-                                {answered && (
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.5 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        className="absolute inset-0 flex items-center justify-center z-10"
-                                    >
-                                        {answer.isCorrect ? (
-                                            <div className="bg-green-500 text-white rounded-full p-4 border-4 border-white shadow-xl text-4xl">✓</div>
-                                        ) : (
-                                            <div className="bg-red-500/80 text-white rounded-full p-4 border-4 border-white shadow-xl text-4xl">✗</div>
+                                        {/* Status Overlay */}
+                                        {answered && (
+                                            <motion.div
+                                                initial={{ opacity: 0, scale: 0.5 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                className="absolute inset-0 flex items-center justify-center z-10"
+                                            >
+                                                {answer.isCorrect ? (
+                                                    <div className="bg-green-500 text-white rounded-full p-3 border-4 border-white shadow-xl text-3xl">✓</div>
+                                                ) : (
+                                                    <div className="bg-red-500/80 text-white rounded-full p-3 border-4 border-white shadow-xl text-3xl">✗</div>
+                                                )}
+                                            </motion.div>
                                         )}
                                     </motion.div>
-                                )}
-                            </motion.div>
-                        ))}
-                    </div>
+                                ))}
+                            </div>
+                        );
+                    })()}
 
                     {/* Feedback / Next */}
-                    <div className="h-24 flex items-center justify-center font-bold text-2xl">
+                    <div className="h-16 flex items-center justify-center font-bold text-2xl">
                         {answered && (
                             <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
                                 {isCorrect ? (
