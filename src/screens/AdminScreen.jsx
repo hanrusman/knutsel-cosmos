@@ -8,6 +8,7 @@ const AdminScreen = ({ onBack }) => {
     const [jsonInput, setJsonInput] = useState('');
     const [view, setView] = useState('list'); // 'list' | 'add' | 'bulk'
     const [loading, setLoading] = useState(false);
+    const [stats, setStats] = useState({});
 
     useEffect(() => {
         loadData();
@@ -15,9 +16,32 @@ const AdminScreen = ({ onBack }) => {
 
     const loadData = async () => {
         setLoading(true);
-        const data = await QuestionService.getAll();
-        setQuestions(data || []); // Ensure array
-        setLoading(false);
+        try {
+            const [data, statsData] = await Promise.all([
+                QuestionService.getAll(),
+                QuestionService.getStats()
+            ]);
+
+            setQuestions(data || []);
+
+            // Map stats by question text (or ID if we matched IDs correctly in backend query, but ID is cleaner)
+            const statsMap = {};
+            if (Array.isArray(statsData)) {
+                statsData.forEach(s => {
+                    const rate = s.total_attempts > 0 ? (s.correct_count / s.total_attempts) : 0;
+                    statsMap[s.question] = {
+                        ...s,
+                        rate: Math.round(rate * 100),
+                        color: rate < 0.5 ? 'text-red-500 font-bold' : (rate < 0.8 ? 'text-orange-500' : 'text-green-500')
+                    };
+                });
+            }
+            setStats(statsMap);
+        } catch (e) {
+            console.error("Failed to load data", e);
+        } finally {
+            setLoading(false);
+        }
     }
 
     const handleBulkSave = async () => {
@@ -40,8 +64,114 @@ const AdminScreen = ({ onBack }) => {
         }
     };
 
+    const handleDelete = async (id) => {
+        if (window.confirm('Weet je zeker dat je deze vraag wilt verwijderen?')) {
+            setLoading(true);
+            try {
+                await QuestionService.deleteQuestion(id);
+                await loadData();
+            } catch (e) {
+                alert('Fout bij verwijderen: ' + e.message);
+            } finally {
+                setLoading(false);
+            }
+        }
+    };
+
+    const [editingQuestion, setEditingQuestion] = useState(null);
+
+    const handleEditClick = (q) => {
+        // deep copy to avoid reference issues
+        setEditingQuestion(JSON.parse(JSON.stringify(q)));
+    };
+
+    const handleUpdateSave = async () => {
+        if (!editingQuestion) return;
+        setLoading(true);
+        try {
+            // Parse tags if string
+            let tags = editingQuestion.tags;
+            if (typeof tags === 'string') {
+                tags = tags.split(',').map(t => t.trim()).filter(Boolean);
+            }
+
+            // Parse answers if string (simple validation)
+            let answers = editingQuestion.answers;
+            if (typeof answers === 'string') {
+                try {
+                    answers = JSON.parse(answers);
+                } catch (e) {
+                    throw new Error('Answers JSON is ongeldig');
+                }
+            }
+
+            await QuestionService.updateQuestion(editingQuestion.id, {
+                ...editingQuestion,
+                tags,
+                answers
+            });
+
+            await loadData();
+            setEditingQuestion(null);
+        } catch (e) {
+            alert('Fout bij updaten: ' + e.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <Workbench>
+            {editingQuestion && (
+                <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4">
+                    <div className="bg-white p-6 rounded-lg w-full max-w-2xl shadow-xl border-4 text-left border-gray-800 flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
+                        <h2 className="text-2xl font-bold">Vraag Bewerken</h2>
+
+                        <div>
+                            <label className="block text-sm font-bold mb-1">Vraag:</label>
+                            <input
+                                className="w-full border p-2 rounded"
+                                value={editingQuestion.question}
+                                onChange={e => setEditingQuestion({ ...editingQuestion, question: e.target.value })}
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-bold mb-1">Tags (komma gescheiden):</label>
+                            <input
+                                className="w-full border p-2 rounded"
+                                value={Array.isArray(editingQuestion.tags) ? editingQuestion.tags.join(', ') : editingQuestion.tags}
+                                onChange={e => setEditingQuestion({ ...editingQuestion, tags: e.target.value })}
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-bold mb-1">Antwoorden (JSON):</label>
+                            <textarea
+                                className="w-full border p-2 rounded h-32 font-mono text-sm"
+                                value={typeof editingQuestion.answers === 'string' ? editingQuestion.answers : JSON.stringify(editingQuestion.answers, null, 2)}
+                                onChange={e => setEditingQuestion({ ...editingQuestion, answers: e.target.value })}
+                            />
+                        </div>
+
+                        <div className="flex justify-end gap-2 mt-4">
+                            <button
+                                onClick={() => setEditingQuestion(null)}
+                                className="px-4 py-2 border rounded hover:bg-gray-100"
+                            >
+                                Annuleren
+                            </button>
+                            <button
+                                onClick={handleUpdateSave}
+                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                            >
+                                Opslaan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <div className="absolute top-4 left-4 z-50">
                 <CardboardButton onClick={onBack} className="!px-4 !py-2 !text-lg">
                     ← TERUG
@@ -69,13 +199,34 @@ const AdminScreen = ({ onBack }) => {
                             </div>
                         )}
                         {questions.map((q, idx) => (
-                            <div key={q.id || idx} className="border p-4 rounded bg-gray-50 flex justify-between items-start">
-                                <div>
+                            <div key={q.id || idx} className="border p-4 rounded bg-gray-50 flex justify-between items-start group">
+                                <div className="flex-1">
                                     <div className="font-bold">{q.question}</div>
                                     <div className="text-sm text-gray-500">Tags: {q.tags ? q.tags.join(', ') : '-'}</div>
+                                    <div className="text-xs text-gray-400 mt-1">ID: {q.id}</div>
+
+                                    {/* Stats Indicator */}
+                                    {stats[q.question] && (
+                                        <div className={`text-xs mt-1 ${stats[q.question].color}`}>
+                                            Score: {stats[q.question].rate}% ({stats[q.question].correct_count}/{stats[q.question].total_attempts})
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="text-xs bg-gray-200 px-2 py-1 rounded max-w-[100px] truncate">
-                                    ID: {q.id}
+                                <div className="flex gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button
+                                        onClick={() => handleEditClick(q)}
+                                        className="bg-yellow-400 text-white p-2 rounded hover:bg-yellow-500 transition-colors"
+                                        title="Bewerken"
+                                    >
+                                        ✏️
+                                    </button>
+                                    <button
+                                        onClick={() => handleDelete(q.id)}
+                                        className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors"
+                                        title="Verwijderen"
+                                    >
+                                        🗑️
+                                    </button>
                                 </div>
                             </div>
                         ))}

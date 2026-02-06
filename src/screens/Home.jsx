@@ -1,10 +1,13 @@
 import React from 'react';
 import Workbench from '../components/layout/Workbench';
 import CardboardButton from '../components/ui/CardboardButton';
-import Sparky from '../components/character/Sparky';
+import SparkyAvatar from '../components/character/SparkyAvatar';
+import useGameStore from '../store/gameStore';
 import { motion } from 'framer-motion';
 
 const Home = ({ onNavigateToMap, onNavigateToShop, onNavigateToAdmin }) => {
+    const equippedItems = useGameStore(state => state.equippedItems);
+
     return (
         <Workbench>
             <div className="flex flex-col items-center gap-8 w-full relative">
@@ -17,7 +20,7 @@ const Home = ({ onNavigateToMap, onNavigateToShop, onNavigateToAdmin }) => {
 
                 {/* Sparky Section */}
                 <div className="flex-1 flex items-center justify-center p-8">
-                    <Sparky />
+                    <SparkyAvatar equipped={equippedItems} />
                 </div>
 
                 {/* Buttons Section */}

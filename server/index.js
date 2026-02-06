@@ -11,11 +11,28 @@ app.use(bodyParser.json());
 
 // API Routes
 
-// GET all questions
+// GET all questions (with optional limit and tag filter)
 app.get('/api/questions', (req, res) => {
     try {
-        const stmt = db.prepare('SELECT * FROM questions ORDER BY created_at DESC');
-        const rows = stmt.all();
+        const { tag, limit } = req.query;
+        let query = 'SELECT * FROM questions';
+        const params = [];
+
+        if (tag) {
+            query += ' WHERE tags LIKE ?';
+            params.push(`%${tag}%`);
+        }
+
+        // Randomize order
+        query += ' ORDER BY RANDOM()';
+
+        if (limit) {
+            query += ' LIMIT ?';
+            params.push(parseInt(limit));
+        }
+
+        const stmt = db.prepare(query);
+        const rows = stmt.all(params);
 
         // Parse JSON fields back to objects
         const questions = rows.map(r => ({
@@ -28,6 +45,38 @@ app.get('/api/questions', (req, res) => {
     } catch (err) {
         console.error('Error fetching questions:', err);
         res.status(500).json({ error: 'Failed to fetch questions' });
+    }
+});
+
+// POST to record an attempt (Stats)
+app.post('/api/attempts', (req, res) => {
+    try {
+        const { question_id, is_correct } = req.body;
+        const stmt = db.prepare('INSERT INTO attempts (question_id, is_correct) VALUES (?, ?)');
+        const result = stmt.run(question_id, is_correct ? 1 : 0);
+        res.json({ id: result.lastInsertRowid });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// GET stats (for Admin)
+app.get('/api/stats', (req, res) => {
+    try {
+        // Return success rate per question
+        const stats = db.prepare(`
+            SELECT 
+                q.question, 
+                COUNT(a.id) as total_attempts,
+                SUM(CASE WHEN a.is_correct = 1 THEN 1 ELSE 0 END) as correct_count
+            FROM questions q
+            LEFT JOIN attempts a ON q.id = a.question_id
+            GROUP BY q.id
+            HAVING total_attempts > 0
+        `).all();
+        res.json(stats);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 });
 

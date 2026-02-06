@@ -11,6 +11,8 @@ const useGameStore = create(
 
             // Economy & Inventory
             inventory: [], // Array of item IDs owned by player
+            equippedItems: [], // IDs of currently worn items
+
             shopItems: [
                 { id: 'gold-antenna', name: 'Gouden Antenne', cost: 10, icon: '🏆' },
                 { id: 'rocket-boots', name: 'Raket Laarzen', cost: 25, icon: '🚀' },
@@ -39,12 +41,25 @@ const useGameStore = create(
                 if (item && state.coins >= item.cost && !state.inventory.includes(itemId)) {
                     set({
                         coins: state.coins - item.cost,
-                        inventory: [...state.inventory, itemId]
+                        inventory: [...state.inventory, itemId],
+                        equippedItems: [...state.equippedItems, itemId] // Auto-equip
                     });
                     return true; // Purchase successful
                 }
                 return false; // Purchase failed
-            }
+            },
+
+            toggleEquip: (itemId) => set((state) => {
+                // Must own it first
+                if (!state.inventory.includes(itemId)) return state;
+
+                const isEquipped = state.equippedItems.includes(itemId);
+                return {
+                    equippedItems: isEquipped
+                        ? state.equippedItems.filter(id => id !== itemId)
+                        : [...state.equippedItems, itemId]
+                };
+            })
         }),
         {
             name: 'sparky-storage', // unique name

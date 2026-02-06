@@ -47,6 +47,21 @@ const initDb = () => {
             ])
         );
     }
+
+    // Check/Create attempts table (Stats)
+    const attemptsExists = db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='attempts'").get();
+    if (!attemptsExists) {
+        console.log('Creating attempts table...');
+        db.prepare(`
+            CREATE TABLE attempts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                question_id TEXT,
+                is_correct BOOLEAN,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY(question_id) REFERENCES questions(id)
+            )
+        `).run();
+    }
 };
 
 initDb();

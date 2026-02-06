@@ -19,6 +19,10 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
     const [showReward, setShowReward] = useState(false);
     const [quizCompleted, setQuizCompleted] = useState(false);
 
+    // Stats Tracking
+    const [correctCount, setCorrectCount] = useState(0);
+    const [hasRetried, setHasRetried] = useState(false); // Track if current question was retried
+
     // Load questions on mount based on Level ID (simulating tag matching)
     useEffect(() => {
         const loadQuizData = async () => {
@@ -26,17 +30,17 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
             // For prototype, map level ID to tag. 
             // Level 1 -> 'level1', Level 2 -> 'level2', etc. Fallback to all 'space' if no specific match
             let tag = `level${levelId}`;
-            let loaded = await QuestionService.getQuestionsByTag(tag);
+
+            // Limit to 10 questions per round
+            let loaded = await QuestionService.getQuestionsByTag(tag, 10);
 
             if (loaded.length === 0) {
                 // Fallback: Just load ANY question with 'space' tag if specific level questions missing
-                loaded = await QuestionService.getQuestionsByTag('space');
+                loaded = await QuestionService.getQuestionsByTag('space', 10);
             }
 
             // Validate data structure
             if (loaded && loaded.length > 0) {
-                // Check if answers is a string (JSON column from DB might come as text if not typed) 
-                // or object. Supabase returns JSONB as objects usually.
                 setQuestions(loaded);
                 setCurrentQuestion(loaded[0]);
             }
@@ -46,14 +50,22 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
         loadQuizData();
     }, [levelId]);
 
-    const handleAnswer = (answer) => {
+    const handleAnswer = async (answer) => {
         setAnswered(true);
 
-        if (answer.isCorrect) {
+        const isAnsCorrect = answer.isCorrect;
+
+        // Record Attempt in Background
+        QuestionService.recordAttempt(currentQuestion.id, isAnsCorrect);
+
+        if (isAnsCorrect) {
             setIsCorrect(true);
-            // Give immediate feedback sound?
+            if (!hasRetried) {
+                setCorrectCount(prev => prev + 1);
+            }
         } else {
             setIsCorrect(false);
+            setHasRetried(true);
         }
     };
 
@@ -64,6 +76,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                 // Go to next question
                 setAnswered(false);
                 setIsCorrect(false);
+                setHasRetried(false); // Reset retry flag for new question
                 const nextIdx = currentIndex + 1;
                 setCurrentIndex(nextIdx);
                 setCurrentQuestion(questions[nextIdx]);
@@ -72,9 +85,8 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                 setQuizCompleted(true);
                 setShowReward(true);
 
-                // Calculate Rewards
-                // E.g. 5 coins per question
-                const rewardAmount = Math.max(questions.length * 5, 5);
+                // Calculate Rewards: Coins = Correct Answers on First Try
+                const rewardAmount = Math.max(correctCount, 1); // Minimum 1 coin
 
                 setTimeout(() => {
                     addGears(1); // Standard gear reward
@@ -83,7 +95,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                 }, 500);
             }
         } else {
-            // Retry current question (reset state)
+            // Retry current question (reset state UI only, logic tracks retry)
             setAnswered(false);
             setIsCorrect(false);
         }
@@ -138,8 +150,11 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                                 {/* Polaroid Frame */}
                                 <div className="bg-white p-4 pb-12 shadow-cardboard border border-gray-200 rotate-1 transition-transform group-hover:rotate-0 w-64 aspect-square flex flex-col">
                                     <div className="flex-1 w-full bg-gray-200 inner-shadow flex items-center justify-center overflow-hidden relative" style={{ backgroundColor: answer.color || '#e5e7eb' }}>
-                                        {/* We don't have images in data yet so use placeholder text or colors */}
-                                        <div className="text-4xl">📷</div>
+                                        {answer.image ? (
+                                            <img src={answer.image} alt={answer.label} className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="text-4xl">📷</div>
+                                        )}
                                     </div>
                                     <div className="absolute bottom-2 left-0 w-full text-center font-bold text-xl text-gray-700 uppercase">
                                         {answer.label}
@@ -190,7 +205,7 @@ const QuizScreen = ({ levelId, onBack, onComplete }) => {
                         GEWONNEN!
                     </h1>
                     <div className="text-2xl font-bold bg-paper px-6 py-2 rotate-1">
-                        Je hebt {Math.max(questions.length * 5, 5)} muntjes verdiend!
+                        Je hebt {correctCount} muntjes verdiend! ({correctCount}/{questions.length} goed)
                     </div>
                     <CardboardButton onClick={onComplete} className="text-2xl">
                         TERUG NAAR DE KAART

@@ -14,6 +14,17 @@ export const QuestionService = {
         }
     },
 
+    getStats: async () => {
+        try {
+            const res = await fetch('/api/stats');
+            if (!res.ok) throw new Error('Failed to fetch stats');
+            return await res.json();
+        } catch (error) {
+            console.error('Error fetching stats:', error);
+            return [];
+        }
+    },
+
     saveAll: async (questions) => {
         try {
             // Ensure format matches API expectation
@@ -41,15 +52,33 @@ export const QuestionService = {
         }
     },
 
-    getQuestionsByTag: async (tag) => {
+    getQuestionsByTag: async (tag, limit = 10) => {
         try {
-            // Fetch all and filter client-side for now (Simpler backend)
-            // Or typically: fetch(`${API_URL}?tag=${tag}`)
-            const all = await QuestionService.getAll();
-            return all.filter(q => q.tags && q.tags.includes(tag));
+            // Use backend filtering and limiting
+            const url = new URL(API_URL, window.location.origin);
+            if (tag) url.searchParams.append('tag', tag);
+            if (limit) url.searchParams.append('limit', limit);
+
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('Failed to fetch questions');
+            return await res.json();
         } catch (error) {
             console.error('Error fetching by tag:', error);
-            return [];
+            // Fallback to getting all if filter fails, though backend should handle it
+            const all = await QuestionService.getAll();
+            return all.slice(0, limit);
+        }
+    },
+
+    recordAttempt: async (questionId, isCorrect) => {
+        try {
+            await fetch('/api/attempts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question_id: questionId, is_correct: isCorrect })
+            });
+        } catch (e) {
+            console.error('Failed to record stats', e);
         }
     },
 
