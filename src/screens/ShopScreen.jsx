@@ -33,7 +33,7 @@ const ShopScreen = ({ onBack }) => {
 
             <div className="flex flex-col w-full h-full items-center p-4">
                 {/* Header with Coin Balance and Avatar */}
-                <div className="flex flex-col items-center mb-8 relative w-full max-w-4xl z-10">
+                <div className="flex flex-col items-center mb-8 relative w-full max-w-4xl z-10 shrink-0">
                     <div className="absolute top-0 right-0 z-20">
                         <div className="bg-yellow-100 px-6 py-2 border-2 border-yellow-600 rounded-full shadow-md flex items-center gap-2 text-2xl font-bold rotate-1 animate-bounce-slow">
                             <span>🪙</span>
@@ -54,102 +54,104 @@ const ShopScreen = ({ onBack }) => {
                     </div>
                 </div>
 
-                {/* Shop Shelf */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-5xl overflow-y-auto p-8 custom-scrollbar pb-32">
-                    {shopItems.map((item, idx) => {
-                        const isOwned = inventory.includes(item.id);
-                        const isEquipped = equippedItems.includes(item.id);
-                        const canAfford = coins >= item.cost;
+                {/* Scrollable Shop Shelf & Footer */}
+                <div className="flex-1 w-full max-w-5xl overflow-y-auto p-4 custom-scrollbar min-h-0 mask-image-gradient">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 p-4 pb-32">
+                        {shopItems.map((item, idx) => {
+                            const isOwned = inventory.includes(item.id);
+                            const isEquipped = equippedItems.includes(item.id);
+                            const canAfford = coins >= item.cost;
 
-                        // Use index based rotation for consistency
-                        const rotate = idx % 2 === 0 ? 'rotate-1' : '-rotate-1';
+                            // Use index based rotation for consistency
+                            const rotate = idx % 2 === 0 ? 'rotate-1' : '-rotate-1';
 
-                        return (
-                            <motion.div
-                                key={item.id}
-                                whileHover={{ scale: 1.05, rotate: 0 }}
-                                className={clsx(
-                                    "relative bg-[#d4c5a9] p-6 shadow-xl flex flex-col items-center gap-4 transition-all border-4 border-dashed border-black/10",
-                                    rotate,
-                                    isOwned ? "opacity-90 grayscale-[0.2]" : ""
-                                )}
-                                style={{
-                                    backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23a19379\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zM6 5v1H5z\'/%3E%3C/g%3E%3C/svg%3E")',
-                                }}
-                            >
-                                {/* Tape effect */}
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/40 rotate-1 shadow-sm backdrop-blur-sm" />
-
-                                {/* Price Tag */}
-                                {!isOwned && (
-                                    <div className="absolute -top-4 -right-4 bg-yellow-300 text-yellow-900 border-2 border-yellow-600 px-4 py-2 font-black text-xl z-10 shadow-lg rotate-12 flex flex-col items-center leading-none">
-                                        <span className="text-xs font-serif uppercase tracking-widest opacity-70">Slechts</span>
-                                        <span>🪙 {item.cost}</span>
-                                    </div>
-                                )}
-
-                                {/* Equipped Tag */}
-                                {isEquipped && (
-                                    <div className="absolute top-2 right-2 bg-blue-500 text-white border-2 border-white px-2 py-1 font-bold z-10 shadow-md rotate-3 text-xs">
-                                        GEDRAGEN
-                                    </div>
-                                )}
-
-                                {/* Item Icon */}
-                                <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center text-7xl shadow-inner border-4 border-gray-200 group-hover:scale-110 transition-transform relative overflow-hidden">
-                                    {/* Simple "shine" effect */}
-                                    <div className="absolute top-0 left-0 w-full h-1/2 bg-white/40 -skew-y-12 translate-y-[-50%]" />
-                                    <span className="drop-shadow-lg filter">{item.icon}</span>
-                                </div>
-
-                                <div className="text-center w-full bg-white/50 p-2 transform -skew-x-2">
-                                    <h3 className="text-2xl font-black uppercase tracking-tight text-gray-800 font-hand">{item.name}</h3>
-                                    <p className="text-xs text-gray-600 font-serif italic mt-1">
-                                        {/* Dynamic "Funny" descriptions based on item ID */}
-                                        {item.id === 'gold-antenna' && "Vangt signalen uit de ruimte (misschien)."}
-                                        {item.id === 'rocket-boots' && "Pas op: Kan brandplekken op het tapijt maken."}
-                                        {item.id === 'paint-bucket' && "Word een kunstenaar! Of maak gewoon rommel."}
-                                        {item.id === 'disco-lights' && "Voor als je wilt dansen tijdens het rekenen."}
-                                        {item.id === 'super-sparky' && "Is het een vogel? Is het een vliegtuig? Nee."}
-                                    </p>
-                                </div>
-
-                                <div className="mt-auto w-full pt-4">
-                                    {isOwned ? (
-                                        <button
-                                            onClick={() => toggleEquip(item.id)}
-                                            className={clsx(
-                                                "w-full px-4 py-3 font-bold uppercase rounded-sm border-4 border-dashed transition-all transform active:scale-95 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]",
-                                                isEquipped
-                                                    ? "bg-red-100 text-red-800 border-red-400 hover:bg-red-200"
-                                                    : "bg-green-100 text-green-800 border-green-400 hover:bg-green-200"
-                                            )}
-                                        >
-                                            {isEquipped ? 'UITDOEN 👕' : 'AANDOEN 🧢'}
-                                        </button>
-                                    ) : (
-                                        <CardboardButton
-                                            onClick={() => handleBuy(item)}
-                                            className={clsx(
-                                                "!w-full !px-6 !py-3 !text-xl transition-all",
-                                                canAfford
-                                                    ? "bg-green-500 hover:bg-green-600 text-white border-green-700 hover:scale-105"
-                                                    : "bg-gray-300 text-gray-500 border-gray-400 cursor-not-allowed opacity-70"
-                                            )}
-                                        >
-                                            {canAfford ? 'KOOP NU! 🛒' : 'SPAAR DOOR 🔒'}
-                                        </CardboardButton>
+                            return (
+                                <motion.div
+                                    key={item.id}
+                                    whileHover={{ scale: 1.05, rotate: 0 }}
+                                    className={clsx(
+                                        "relative bg-[#d4c5a9] p-6 shadow-xl flex flex-col items-center gap-4 transition-all border-4 border-dashed border-black/10",
+                                        rotate,
+                                        isOwned ? "opacity-90 grayscale-[0.2]" : ""
                                     )}
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
+                                    style={{
+                                        backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23a19379\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zM6 5v1H5z\'/%3E%3C/g%3E%3C/svg%3E")',
+                                    }}
+                                >
+                                    {/* Tape effect */}
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/40 rotate-1 shadow-sm backdrop-blur-sm" />
 
-                <div className="mt-8 z-0">
-                    <p className="text-gray-500 italic bg-white/80 p-3 rotate-1 border border-gray-300 shadow-sm max-w-sm text-center">
-                        "Geen garantie. Retourneren mag, maar we geven geen muntjes terug!" - De Directie
-                    </p>
+                                    {/* Price Tag */}
+                                    {!isOwned && (
+                                        <div className="absolute -top-4 -right-4 bg-yellow-300 text-yellow-900 border-2 border-yellow-600 px-4 py-2 font-black text-xl z-10 shadow-lg rotate-12 flex flex-col items-center leading-none">
+                                            <span className="text-xs font-serif uppercase tracking-widest opacity-70">Slechts</span>
+                                            <span>🪙 {item.cost}</span>
+                                        </div>
+                                    )}
+
+                                    {/* Equipped Tag */}
+                                    {isEquipped && (
+                                        <div className="absolute top-2 right-2 bg-blue-500 text-white border-2 border-white px-2 py-1 font-bold z-10 shadow-md rotate-3 text-xs">
+                                            GEDRAGEN
+                                        </div>
+                                    )}
+
+                                    {/* Item Icon */}
+                                    <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center text-7xl shadow-inner border-4 border-gray-200 group-hover:scale-110 transition-transform relative overflow-hidden">
+                                        {/* Simple "shine" effect */}
+                                        <div className="absolute top-0 left-0 w-full h-1/2 bg-white/40 -skew-y-12 translate-y-[-50%]" />
+                                        <span className="drop-shadow-lg filter">{item.icon}</span>
+                                    </div>
+
+                                    <div className="text-center w-full bg-white/50 p-2 transform -skew-x-2">
+                                        <h3 className="text-2xl font-black uppercase tracking-tight text-gray-800 font-hand">{item.name}</h3>
+                                        <p className="text-xs text-gray-600 font-serif italic mt-1">
+                                            {/* Dynamic "Funny" descriptions based on item ID */}
+                                            {item.id === 'gold-antenna' && "Vangt signalen uit de ruimte (misschien)."}
+                                            {item.id === 'rocket-boots' && "Pas op: Kan brandplekken op het tapijt maken."}
+                                            {item.id === 'paint-bucket' && "Word een kunstenaar! Of maak gewoon rommel."}
+                                            {item.id === 'disco-lights' && "Voor als je wilt dansen tijdens het rekenen."}
+                                            {item.id === 'super-sparky' && "Is het een vogel? Is het een vliegtuig? Nee."}
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-auto w-full pt-4">
+                                        {isOwned ? (
+                                            <button
+                                                onClick={() => toggleEquip(item.id)}
+                                                className={clsx(
+                                                    "w-full px-4 py-3 font-bold uppercase rounded-sm border-4 border-dashed transition-all transform active:scale-95 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]",
+                                                    isEquipped
+                                                        ? "bg-red-100 text-red-800 border-red-400 hover:bg-red-200"
+                                                        : "bg-green-100 text-green-800 border-green-400 hover:bg-green-200"
+                                                )}
+                                            >
+                                                {isEquipped ? 'UITDOEN 👕' : 'AANDOEN 🧢'}
+                                            </button>
+                                        ) : (
+                                            <CardboardButton
+                                                onClick={() => handleBuy(item)}
+                                                className={clsx(
+                                                    "!w-full !px-6 !py-3 !text-xl transition-all",
+                                                    canAfford
+                                                        ? "bg-green-500 hover:bg-green-600 text-white border-green-700 hover:scale-105"
+                                                        : "bg-gray-300 text-gray-500 border-gray-400 cursor-not-allowed opacity-70"
+                                                )}
+                                            >
+                                                {canAfford ? 'KOOP NU! 🛒' : 'SPAAR DOOR 🔒'}
+                                            </CardboardButton>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="mt-8 z-0 pb-16 flex justify-center">
+                        <p className="text-gray-500 italic bg-white/80 p-3 rotate-1 border border-gray-300 shadow-sm max-w-sm text-center">
+                            "Geen garantie. Retourneren mag, maar we geven geen muntjes terug!" - De Directie
+                        </p>
+                    </div>
                 </div>
 
             </div>
